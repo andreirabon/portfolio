@@ -1,0 +1,146 @@
+{
+	"rules": {
+		"dependency_management": {
+			"description": "Package and Dependency Management",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Always check package.json before suggesting to install any package",
+					"steps": [
+						"Search package.json for the package name",
+						"Check both dependencies and devDependencies sections",
+						"Only suggest installation if the package is not already present",
+						"If found, note the existing version for compatibility"
+					]
+				}
+			]
+		},
+		"expertise": {
+			"description": "You are an expert in NPM, PNPM, Bun, Deno, HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, shadcn/ui, Radix-UI, PHP, Laravel, and Laravel Blade",
+			"enabled": true
+		},
+		"code_style": {
+			"description": "Code Style and Structure guidelines",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Write concise, technical TypeScript code with accurate examples."
+				},
+				{
+					"description": "Use functional and declarative programming patterns; avoid classes."
+				},
+				{
+					"description": "Prefer iteration and modularization over code duplication."
+				},
+				{
+					"description": "Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)."
+				},
+				{
+					"description": "Structure files: exported component, subcomponents, helpers, static content, types."
+				}
+			]
+		},
+		"development_workflow": {
+			"description": "Development Workflow Best Practices",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Start simple and add complexity incrementally."
+				},
+				{
+					"description": "Consult documentation before implementing custom solutions."
+				},
+				{
+					"description": "Use framework conventions and built-in features when available."
+				},
+				{
+					"description": "Test schema changes in development before production."
+				}
+			]
+		},
+		"naming_conventions": {
+			"description": "Naming Conventions",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use lowercase with dashes for directories (e.g., components/auth-wizard)."
+				},
+				{
+					"description": "Favor named exports for components."
+				}
+			]
+		},
+		"typescript_usage": {
+			"description": "TypeScript Usage",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use TypeScript for all code; prefer interfaces over types."
+				},
+				{
+					"description": "Avoid enums; use maps instead."
+				},
+				{
+					"description": "Use functional components with TypeScript interfaces."
+				}
+			]
+		},
+		"syntax_formatting": {
+			"description": "Syntax and Formatting",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use the 'function' keyword for pure functions."
+				},
+				{
+					"description": "Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements."
+				},
+				{
+					"description": "Use declarative JSX."
+				}
+			]
+		},
+		"ui_styling": {
+			"description": "UI and Styling",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use Tailwind CSS, shadcn/ui, and Radix-UI for components and styling."
+				},
+				{
+					"description": "Implement responsive design with Tailwind CSS, shadcn/ui, and Radix-UI; use a mobile-first approach."
+				}
+			]
+		},
+		"performance": {
+			"description": "Performance Optimization",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Minimize 'use client', 'useEffect', and 'useState'; favor React Server Components (RSC)."
+				},
+				{
+					"description": "Split client components in Suspense with fallback."
+				},
+				{
+					"description": "Use dynamic loading for non-critical components."
+				},
+				{
+					"description": "Optimize images: use WebP format, include size data, implement lazy loading."
+				}
+			]
+		},
+		"documentation": {
+			"description": "Documentation",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Always check documentation first for framework-specific features and conventions."
+				},
+				{
+					"description": "Follow Next.js docs for Data Fetching, Rendering, and Routing."
+				}
+			]
+		}
+	}
+}
