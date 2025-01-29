@@ -1,16 +1,9 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-.font-inter1 {
+.font-inter {
 	font-family: "Inter", serif;
 	font-optical-sizing: auto;
 	font-weight: 300;
-	font-style: normal;
-}
-
-.font-inter2 {
-	font-family: "Inter", serif;
-	font-optical-sizing: auto;
-	font-weight: 200;
 	font-style: normal;
 }
