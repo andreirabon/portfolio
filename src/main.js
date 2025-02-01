@@ -155,165 +155,164 @@ document.querySelector("#skills").innerHTML = `
 			id="skills"
 			class="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
 			<div class="max-w-4xl mx-auto">
-
 				<h2
 					class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
-					My Skills
+					My Skills</a>
 				</h2>
 				<div
 					class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
 					<!-- HTML Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="html.webp"
 							alt="HTML"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							HTML
 						</h3>
 					</div>
 
 					<!-- CSS Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="css.webp"
 							alt="CSS"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							CSS
 						</h3>
 					</div>
 
 					<!-- JavaScript Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="javascript.webp"
 							alt="JavaScript"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							JavaScript
 						</h3>
 					</div>
 
 					<!-- PHP Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="php.webp"
 							alt="PHP"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							PHP
 						</h3>
 					</div>
 
 					<!-- Laravel Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="laravel.webp"
 							alt="Laravel"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							Laravel
 						</h3>
 					</div>
 
 					<!-- TypeScript Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="typescript.webp"
 							alt="TypeScript"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							TypeScript
 						</h3>
 					</div>
 
 					<!-- Tailwind CSS Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="tailwindcss.svg"
 							alt="Tailwind CSS"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							Tailwind CSS
 						</h3>
 					</div>
 
 					<!-- React Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="react.webp"
 							alt="React"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							React
 						</h3>
 					</div>
 
 					<!-- Next.js Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="nextjs.webp"
 							alt="Next.js"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							Next.js
 						</h3>
 					</div>
 
 					<!-- PostgreSQL Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="postgresql.webp"
 							alt="PostgreSQL"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							PostgreSQL
 						</h3>
 					</div>
 
 					<!-- Playwright Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="playwright.webp"
 							alt="Playwright"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							Playwright
 						</h3>
 					</div>
 
 					<!-- Figma Skill -->
 					<div
-						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+						class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 						<img
 							src="figma.webp"
 							alt="Figma"
 							class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4" />
 						<h3
-							class="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">
+							class="text-lg sm:text-xl font-semibold text-black mb-1 sm:mb-2 text-center">
 							Figma
 						</h3>
 					</div>
@@ -326,15 +325,15 @@ document.querySelector("#projects").innerHTML = `
 <section
 			id="projects"
 			class="mb-20 px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-				Projects
+			<h2 class="text-2xl sm:text-3xl font-bold text-black mb-8 text-center">
+				Projects (Work in Progress)
 			</h2>
 
 			<div
 				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 				<!-- Project 1 -->
 				<div
-					class="bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg overflow-hidden transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300">
+					class="bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg overflow-hidden transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 					<img
 						src="project1.jpg"
 						alt="Project 1"
@@ -343,7 +342,7 @@ document.querySelector("#projects").innerHTML = `
 						width="400"
 						height="240" />
 					<div class="p-4 sm:p-6">
-						<h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+						<h3 class="text-lg sm:text-xl font-semibold text-black mb-2">
 							Project 1
 						</h3>
 						<p class="text-sm sm:text-base text-gray-600 mb-4">
@@ -351,7 +350,7 @@ document.querySelector("#projects").innerHTML = `
 						</p>
 						<a
 							href="#"
-							class="text-sm sm:text-base text-blue-600 hover:text-blue-700 font-medium"
+							class="text-sm sm:text-base text-[#20b2aa] font-medium"
 							>View Details →</a
 						>
 					</div>
@@ -359,17 +358,24 @@ document.querySelector("#projects").innerHTML = `
 
 				<!-- Project 2 -->
 				<div
-					class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform">
+					class="bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg overflow-hidden transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
 					<img
-						src="project2.jpg"
+						src="project1.jpg"
 						alt="Project 2"
-						class="w-full h-48 object-cover" />
-					<div class="p-6">
-						<h3 class="text-xl font-semibold text-gray-800 mb-2">Project 2</h3>
-						<p class="text-gray-600 mb-4">Project 2 description.</p>
+						class="w-full h-40 sm:h-48 object-cover"
+						loading="lazy"
+						width="400"
+						height="240" />
+					<div class="p-4 sm:p-6">
+						<h3 class="text-lg sm:text-xl font-semibold text-black mb-2">
+							Project 2
+						</h3>
+						<p class="text-sm sm:text-base text-gray-600 mb-4">
+							Project 2 description.
+						</p>
 						<a
 							href="#"
-							class="text-blue-600 hover:text-blue-700 font-medium"
+							class="text-sm sm:text-base text-[#20b2aa] font-medium"
 							>View Details →</a
 						>
 					</div>
