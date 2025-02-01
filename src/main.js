@@ -131,7 +131,7 @@ document.querySelector("#andrei").innerHTML = `
 					</h1>
 					<div class="text-center">
 						<h2
-							class="text-4xl text-ceter font-semibold tracking-tight text-balance text-black sm:text-6xl font-inter">
+							class="text-4xl text-center font-semibold tracking-tight text-balance text-black sm:text-6xl font-inter">
 							a Web developer based in the Philippines.
 						</h2>
 						<p
@@ -157,7 +157,7 @@ document.querySelector("#skills").innerHTML = `
 			<div class="max-w-4xl mx-auto">
 				<h2
 					class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
-					My Skills</a>
+					Skills</a>
 				</h2>
 				<div
 					class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
