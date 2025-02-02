@@ -324,7 +324,7 @@ document.querySelector("#skills").innerHTML = `
 document.querySelector("#projects").innerHTML = `
 <section
 			id="projects"
-			class="mb-20 px-4 sm:px-6 lg:px-8">
+			class="max-w-4xl mx-auto">
 			<h2 class="text-2xl sm:text-3xl font-bold text-black mb-8 text-center">
 				Projects (Work in Progress)
 			</h2>
@@ -372,6 +372,31 @@ document.querySelector("#projects").innerHTML = `
 						</h3>
 						<p class="text-sm sm:text-base text-gray-600 mb-4">
 							Project 2 description.
+						</p>
+						<a
+							href="#"
+							class="text-sm sm:text-base text-[#20b2aa] font-medium"
+							>View Details →</a
+						>
+					</div>
+				</div>
+
+				<!-- Project 3 -->
+				<div
+					class="bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg overflow-hidden transform hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 hover:outline-2 hover:outline-[#20b2aa]">
+					<img
+						src="project1.jpg"
+						alt="Project 3"
+						class="w-full h-40 sm:h-48 object-cover"
+						loading="lazy"
+						width="400"
+						height="240" />
+					<div class="p-4 sm:p-6">
+						<h3 class="text-lg sm:text-xl font-semibold text-black mb-2">
+							Project 3
+						</h3>
+						<p class="text-sm sm:text-base text-gray-600 mb-4">
+							Project 3 description.
 						</p>
 						<a
 							href="#"
