@@ -23,7 +23,11 @@ const projects = [
 function Projects() {
 	return (
 		<>
-			<h1 className="text-2xl font-bold tracking-tight dark:text-gray-100">Projects</h1>
+			<h1
+				id="projects"
+				className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
+				Projects
+			</h1>
 			<Carousel className="w-full max-w-5xl mx-auto">
 				<CarouselContent>
 					{projects.map((project) => (

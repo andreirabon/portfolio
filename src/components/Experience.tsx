@@ -4,7 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 function Experience() {
 	return (
 		<>
-			<h1 className="text-2xl font-bold tracking-tight dark:text-gray-100">Experience</h1>
+			<h1
+				id="experiences"
+				className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
+				Experience
+			</h1>
 
 			<Tabs
 				defaultValue="work"
