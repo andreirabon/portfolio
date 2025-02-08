@@ -114,3 +114,10 @@
 .animate-wave {
 	animation: wave 1.5s infinite;
 }
+
+@layer base {
+	html,
+	body {
+		@apply dark:bg-black min-h-screen;
+	}
+}

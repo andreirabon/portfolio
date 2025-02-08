@@ -15,6 +15,7 @@ function Experience() {
 	return (
 		<>
 			<h1 className="text-2xl font-bold tracking-tight dark:text-gray-100">Experience</h1>
+
 			<Tabs
 				defaultValue="work"
 				className="h-full w-full">
