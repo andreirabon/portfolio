@@ -134,7 +134,6 @@ function EduTimelineItem({
 						src={logo || "/placeholder.svg"}
 						alt={`${institution} logo`}
 						className="object-cover size-full"
-						loading="lazy"
 						width={64}
 						height={64}
 					/>
