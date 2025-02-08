@@ -20,7 +20,7 @@ interface WorkTimelineEntry {
 
 const education: EduTimelineEntry[] = [
 	{
-		logo: "/public/wmsu.jpg",
+		logo: "wmsu.jpg",
 		startDate: "2021",
 		endDate: "2024",
 		institution: "Western Mindanao State University",
@@ -28,7 +28,7 @@ const education: EduTimelineEntry[] = [
 		qualification: "Master of Public Administration Major in Personnel Administration",
 	},
 	{
-		logo: "/public/pczc.png",
+		logo: "pczc.png",
 		startDate: "2016",
 		endDate: "2019",
 		level: "Undergraduate",
@@ -39,28 +39,28 @@ const education: EduTimelineEntry[] = [
 
 const work: WorkTimelineEntry[] = [
 	{
-		logo: "/public/wmsu.jpg",
+		logo: "aka.jpg",
 		startDate: "2022",
 		endDate: "Present",
 		employer: "AKA Software Inc.",
 		role: "Quality Assurance Tester",
 	},
 	{
-		logo: "/public/psa.png",
+		logo: "psa.png",
 		startDate: " August 2021",
 		endDate: "October 2021",
 		employer: "Philippine Statistics Authority RFO 9",
 		role: "Data Map Screener ",
 	},
 	{
-		logo: "/public/da.png",
+		logo: "da.png",
 		startDate: "January 2020",
 		endDate: "December 2020",
 		employer: "Department of Agriculture RFO 9",
 		role: "Administrative Aide III ",
 	},
 	{
-		logo: "/public/dict.png",
+		logo: "dict.png",
 		startDate: "November 2018",
 		endDate: "January 2019",
 		employer: "Department of Information and Communications Technology RFO 9",
@@ -134,6 +134,7 @@ function EduTimelineItem({
 						src={logo || "/placeholder.svg"}
 						alt={`${institution} logo`}
 						className="object-cover size-full"
+						loading="lazy"
 						width={64}
 						height={64}
 					/>
