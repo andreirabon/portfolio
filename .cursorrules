@@ -1,0 +1,195 @@
+{
+	"rules": {
+		"dependency_management": {
+			"description": "Package and Dependency Management",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Always check package.json before suggesting to install any package",
+					"steps": [
+						"Search package.json for the package name",
+						"Check both dependencies and devDependencies sections",
+						"Only suggest installation if the package is not already present",
+						"If found, note the existing version for compatibility"
+					]
+				}
+			]
+		},
+		"expertise": {
+			"description": "You are an expert in HTML, CSS, JavaScript, TypeScript, Node.js, React, Next.js App Router, shadcn/ui, Radix UI, Tailwind, and PayloadCMS.",
+			"enabled": true
+		},
+		"payloadcms_practices": {
+			"description": "PayloadCMS Development Guidelines",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Always check PayloadCMS documentation first before implementing custom solutions."
+				},
+				{
+					"description": "Use built-in features over custom implementations (e.g., Drizzle's db push in development)."
+				},
+				{
+					"description": "Schema changes in development are handled automatically by Drizzle ORM."
+				},
+				{
+					"description": "Manual migrations should only be used for production deployments."
+				},
+				{
+					"description": "Follow the migration workflow: 1) Develop with push mode, 2) Create migrations, 3) Run in production."
+				},
+				{
+					"description": "Never mix push mode and migrations in the same environment."
+				},
+				{
+					"description": "Use 'pnpm payload run' for migration scripts instead of tsx or dotenv - it handles environment setup automatically."
+				},
+				{
+					"description": "Before making schema changes:",
+					"steps": [
+						"Review existing collections in /src/collections/ for patterns and conventions",
+						"Follow established field types and structures",
+						"Make incremental changes to avoid breaking existing functionality",
+						"Test changes in development before creating migrations"
+					]
+				},
+				{
+					"description": "Collection Development Best Practices:",
+					"practices": [
+						"Use consistent field types across collections",
+						"Follow existing naming conventions",
+						"Implement access control consistently",
+						"Group related fields logically",
+						"Add descriptive admin labels and descriptions"
+					]
+				}
+			]
+		},
+		"code_style": {
+			"description": "Code Style and Structure guidelines",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Write concise and technical TypeScript code with accurate examples."
+				},
+				{
+					"description": "Use functional and declarative programming patterns; avoid classes."
+				},
+				{
+					"description": "Prefer iteration and modularization over code duplication."
+				},
+				{
+					"description": "Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)."
+				},
+				{
+					"description": "Structure files: exported component, subcomponents, helpers, static content, types."
+				}
+			]
+		},
+		"development_workflow": {
+			"description": "Development Workflow Best Practices",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Start simple and add complexity incrementally."
+				},
+				{
+					"description": "Consult documentation before implementing custom solutions."
+				},
+				{
+					"description": "Use framework conventions and built-in features when available."
+				},
+				{
+					"description": "Test schema changes in development before production."
+				}
+			]
+		},
+		"naming_conventions": {
+			"description": "Naming Conventions",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use lowercase with dashes for directories (e.g., components/auth-wizard)."
+				},
+				{
+					"description": "Favor named exports for components."
+				}
+			]
+		},
+		"typescript_usage": {
+			"description": "TypeScript Usage",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use TypeScript for all code; prefer interfaces over types."
+				},
+				{
+					"description": "Avoid enums; use maps instead."
+				},
+				{
+					"description": "Use functional components with TypeScript interfaces."
+				}
+			]
+		},
+		"syntax_formatting": {
+			"description": "Syntax and Formatting",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use the 'function' keyword for pure functions."
+				},
+				{
+					"description": "Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements."
+				},
+				{
+					"description": "Use declarative JSX."
+				}
+			]
+		},
+		"ui_styling": {
+			"description": "UI and Styling",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Use shadcn/ui, Radix UI, and Tailwind for components and styling."
+				},
+				{
+					"description": "Implement responsive design with Tailwind CSS; use a mobile-first approach."
+				}
+			]
+		},
+		"performance": {
+			"description": "Performance Optimization",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Minimize 'use client', 'useEffect', and 'useState'; favor React Server Components (RSC)."
+				},
+				{
+					"description": "Split client components in Suspense with fallback."
+				},
+				{
+					"description": "Use dynamic loading for non-critical components."
+				},
+				{
+					"description": "Optimize images: use WebP format, include size data, implement lazy loading."
+				}
+			]
+		},
+		"documentation": {
+			"description": "Documentation",
+			"enabled": true,
+			"rules": [
+				{
+					"description": "Follow Next.js docs for Data Fetching, Rendering, and Routing."
+				},
+				{
+					"description": "Follow Payload CMS documentation at https://payloadcms.com/docs/"
+				},
+				{
+					"description": "Always check documentation first for framework-specific features and conventions."
+				}
+			]
+		}
+	}
+}
