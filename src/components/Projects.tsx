@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+// import { Card, CardContent } from "@/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
@@ -6,28 +6,11 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const projects = [
 	{
 		id: 1,
-		picture: "/ocean.png",
-		pictureAlt: "ocean.png",
-		title: "Project One",
-		description: "A brief description of the first project",
-		link: "/projects/1",
-		tools: ["React", "Tailwind", "TypeScript"],
-	},
-	{
-		id: 2,
-		picture: "/ocean.png",
-		pictureAlt: "ocean.png",
-		title: "Project One",
-		description: "A brief description of the first project",
-		link: "/projects/1",
-		tools: ["React", "Tailwind", "TypeScript"],
-	},
-	{
-		id: 3,
 		picture: "/ocean.png",
 		pictureAlt: "ocean.png",
 		title: "Project One",
@@ -46,7 +29,10 @@ function Projects() {
 					{projects.map((project) => (
 						<CarouselItem key={project.id}>
 							<div className="p-3">
-								<Card className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500">
+								<div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500">
+									<Skeleton className="h-[500px] w-[1000px] rounded-xl" />
+								</div>
+								{/* <Card className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500">
 									<CardContent className="p-0">
 										<div className="relative group">
 											<img
@@ -82,7 +68,7 @@ function Projects() {
 											</a>
 										</div>
 									</CardContent>
-								</Card>
+								</Card> */}
 							</div>
 						</CarouselItem>
 					))}
