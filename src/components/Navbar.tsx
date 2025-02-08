@@ -8,7 +8,7 @@ function Navbar() {
 					home
 				</a>
 				<a
-					href="#experience"
+					href="#Experience"
 					className="hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400">
 					experience
 				</a>
