@@ -181,7 +181,7 @@
 			"enabled": true,
 			"rules": [
 				{
-					"description": "Follow Next.js docs for Data Fetching, Rendering, and Routing."
+					"description": "Follow React.js docs for Data Fetching, Rendering, and Routing."
 				},
 				{
 					"description": "Follow Payload CMS documentation at https://payloadcms.com/docs/"
