@@ -15,8 +15,11 @@ function Introduction() {
 						<h1 className="calistoga text-4xl md:text-6xl font-bold">
 							hi andrei here <span className="animate-wave inline-block">🤙🏽</span>
 						</h1>
-						<p className="inter-desc text-lg md:text-xl">
-							a <span className="border-b-1 border-[#86EFAC] pb-0.1">frontend web developer</span>{" "}
+						<p className="inter-desc text-lg md:text-m">
+							a{" "}
+							<span className="border-b-1 border-[#86EFAC] pb-0.1">
+								react frontend web developer
+							</span>{" "}
 							based in the Philippines.
 						</p>
 						<Alert>

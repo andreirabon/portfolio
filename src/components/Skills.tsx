@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 
 function Skills() {
 	const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS"];
-	const learning = ["React", "Next.js", "tRPC", "Sass"];
+	const learning = ["React", "Next.js", "Vitest", "Sass"];
 	const plannedLearning = ["Docker", "Kubernetes", "Terraform", "Python", "Go"];
 
 	return (
