@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { CgNotes } from "react-icons/cg";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
+import { FaEnvelope } from "react-icons/fa";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { RiInformation2Line } from "react-icons/ri";
 function Introduction() {
 	return (
 		<>
@@ -13,9 +15,16 @@ function Introduction() {
 						<h1 className="calistoga text-4xl md:text-6xl font-bold">
 							hi andrei here <span className="animate-wave inline-block">🤙🏽</span>
 						</h1>
-						<p className="inter text-lg md:text-xl">
-							a frontend web developer based in the philippines.
+						<p className="inter-desc text-lg md:text-xl">
+							a <span className="border-b-1 border-[#86EFAC] pb-0.1">frontend web developer</span>{" "}
+							based in the Philippines.
 						</p>
+						<Alert>
+							<RiInformation2Line className="h-4 w-4" />
+							<AlertDescription>
+								Seeking opportunities for a junior frontend web developer position
+							</AlertDescription>
+						</Alert>
 					</div>
 
 					<div className="shrink-0">
@@ -31,13 +40,6 @@ function Introduction() {
 					<Button
 						variant="outline"
 						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"
-						onClick={() => window.open("/CV.pdf", "_blank")}>
-						<CgNotes className="mr-2 group-hover:scale-110 transition-transform" />
-						<span>Resume</span>
-					</Button>
-					<Button
-						variant="outline"
-						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"
 						onClick={() => window.open("https://www.linkedin.com/in/andreirabon/", "_blank")}>
 						<FaLinkedin className="mr-2 group-hover:scale-110 transition-transform" />
 						<span>LinkedIn</span>
@@ -49,6 +51,25 @@ function Introduction() {
 						<FaGithub className="mr-2 group-hover:scale-110 transition-transform" />
 
 						<span>GitHub</span>
+					</Button>
+					<Button
+						variant="outline"
+						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"
+						onClick={() => window.open("/CV.pdf", "_blank")}>
+						<CgNotes className="mr-2 group-hover:scale-110 transition-transform" />
+						<span>Resume</span>
+					</Button>
+					<Button
+						variant="outline"
+						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"
+						asChild>
+						<a
+							href="mailto:andreirabon@gmail.com"
+							target="_blank"
+							rel="noopener noreferrer">
+							<FaEnvelope className="mr-2 group-hover:scale-110 transition-transform" />
+							<span>Contact Me</span>
+						</a>
 					</Button>
 				</div>
 			</div>

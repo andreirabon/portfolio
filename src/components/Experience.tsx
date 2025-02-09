@@ -174,7 +174,7 @@ function WorkTimelineItem({ logo, startDate, endDate, employer, role }: WorkTime
 					{startDate} – {endDate}
 				</div>
 				<h2 className="text-slate-200 font-semibold">{employer}</h2>
-				<p className="text-slate-400 text-sm">{role}</p>
+				<p className="text-sm text-slate-400">{role}</p>
 			</div>
 		</div>
 	);

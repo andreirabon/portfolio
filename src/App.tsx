@@ -3,6 +3,7 @@ import Introduction from "./components/Introduction";
 import Skills from "./components/Skills.tsx";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience.tsx";
+
 function App() {
 	return (
 		<>
