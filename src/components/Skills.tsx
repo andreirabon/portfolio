@@ -4,17 +4,20 @@ function Skills() {
 	const skills = [
 		"Git",
 		"Figma",
+		"Atlassian Jira",
+		"Project Management",
+		"Personnel Administration",
 		"HTML",
 		"CSS",
 		"JavaScript",
 		"TypeScript",
-		"REST",
+		"REST API",
 		"Tailwind CSS",
 		"PHP",
 		"Laravel",
 		"PostgreSQL",
 	];
-	const learning = ["React", "Next.js", "Vitest", "Sass"];
+	const learning = ["React", "Next.js", "Vitest"];
 	const plannedLearning = [
 		"Docker",
 		"Kubernetes",
