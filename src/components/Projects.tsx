@@ -32,27 +32,45 @@ const plannedProjects = [
 	{
 		id: 1,
 		status: "❌",
-		name: "API Server",
-		description: "Create a monolithic architecture api server using Go.",
-	},
-	{
-		id: 2,
-		status: "❌",
 		name: "Charts Showcase",
-		description: "Using ApexCharts.js & Recharts to create a finance dashboard.",
+		description: "Using AG-Grid & Chart.js to create a finance dashboard.",
 	},
 
 	{
-		id: 3,
+		id: 2,
 		status: "❌",
-		name: "AG-Grid Showcase",
-		description: "Using AG-Grid to display data in a table.",
+		name: "API Server",
+		description: "Create a monolithic architecture api server using Go.",
 	},
 ];
 
 function Projects() {
 	return (
 		<>
+			<h1
+				id="projects"
+				className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
+				Planned Projects
+			</h1>
+			<Table>
+				<TableHeader>
+					<TableRow>
+						<TableHead className="w-[100px]">Status</TableHead>
+						<TableHead>Name</TableHead>
+						<TableHead>Description</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
+					{plannedProjects.map((project) => (
+						<TableRow key={project.id}>
+							<TableCell className="font-medium">{project.status}</TableCell>
+							<TableCell>{project.name}</TableCell>
+							<TableCell>{project.description}</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+			<br />
 			<h1
 				id="projects"
 				className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
@@ -110,30 +128,6 @@ function Projects() {
 				<CarouselPrevious className="-left-4 h-12 w-12 border-0 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700" />
 				<CarouselNext className="-right-4 h-12 w-12 border-0 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700" />
 			</Carousel>
-			<br />
-			<h1
-				id="projects"
-				className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-				Planned Projects
-			</h1>
-			<Table>
-				<TableHeader>
-					<TableRow>
-						<TableHead className="w-[100px]">Status</TableHead>
-						<TableHead>Name</TableHead>
-						<TableHead>Description</TableHead>
-					</TableRow>
-				</TableHeader>
-				<TableBody>
-					{plannedProjects.map((project) => (
-						<TableRow key={project.id}>
-							<TableCell className="font-medium">{project.status}</TableCell>
-							<TableCell>{project.name}</TableCell>
-							<TableCell>{project.description}</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
-			</Table>
 			<br />
 		</>
 	);

@@ -15,6 +15,5 @@ The portfolio is built using the following technologies:
 
 The primary purpose of this portfolio is to:
 
-- Demonstrate proficiency in modern web development technologies.
 - Provide a centralized location for showcasing personal projects.
-- Serve as a professional introduction for potential employers and collaborators.
+- Serve as a professional introduction for potential employers.
