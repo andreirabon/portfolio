@@ -39,7 +39,7 @@ function Introduction() {
 					</div>
 				</div>
 
-				<div className="flex flex-row gap-4">
+				<div className="flex flex-row flex-wrap gap-4">
 					<Button
 						variant="outline"
 						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"

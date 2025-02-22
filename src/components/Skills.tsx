@@ -1,90 +1,91 @@
 import { Badge } from "@/components/ui/badge";
+import { memo } from 'react';
 
-function Skills() {
-	const skills = [
-		"Git",
-		"Figma",
-		"Atlassian Jira",
-		"Project Management",
-		"Personnel Administration",
-		"HTML",
-		"CSS",
-		"JavaScript",
-		"TypeScript",
-		"REST API",
-		"Tailwind CSS",
-		"PHP",
-		"Laravel",
-		"PostgreSQL",
-	];
-	const learning = ["React", "Next.js", "Vitest"];
-	const plannedLearning = [
-		"Docker",
-		"Kubernetes",
-		"Terraform",
-		"Python",
-		"AWS",
-		"Azure",
-		"Google Cloud",
-		"Go",
-		"GraphQL",
-	];
-
-	return (
-		<>
-			<div
-				id="skills"
-				className="space-y-4">
-				<h1 className="inter text-2xl font-bold tracking-wide dark:text-gray-100">Skills</h1>
-				<div className="flex flex-wrap gap-2">
-					{skills.map((skill) => (
-						<Badge
-							key={skill}
-							variant="secondary"
-							className="inter px-3 py-1 text-sm font-medium transition-all hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800">
-							{skill}
-						</Badge>
-					))}
-				</div>
-			</div>
-			<br />
-			<div
-				id="skills"
-				className="space-y-4">
-				<h1 className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-					Currently Learning
-				</h1>
-				<div className="flex flex-wrap gap-2">
-					{learning.map((learning) => (
-						<Badge
-							key={learning}
-							variant="secondary"
-							className="inter px-3 py-1 text-sm font-medium transition-all hover:scale-105 dark:bg-gray-800">
-							{learning}
-						</Badge>
-					))}
-				</div>
-			</div>
-			<br />
-			<div
-				id="skills"
-				className="space-y-4">
-				<h1 className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-					Future Learning Goals
-				</h1>
-				<div className="flex flex-wrap gap-2">
-					{plannedLearning.map((plannedLearning) => (
-						<Badge
-							key={plannedLearning}
-							variant="secondary"
-							className="inter px-3 py-1 text-sm font-medium transition-all hover:scale-105 dark:bg-gray-800">
-							{plannedLearning}
-						</Badge>
-					))}
-				</div>
-			</div>
-		</>
-	);
+interface SkillCategory {
+  title: string;
+  items: string[];
 }
+
+const Skills: React.FC = memo(() => {
+  const skillCategories: SkillCategory[] = [
+    {
+      title: "Current Skills",
+      items: [
+        "Git",
+        "Figma",
+        "Atlassian Jira",
+        "Project Management",
+        "Personnel Administration",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "REST API",
+        "Tailwind CSS",
+        "PHP",
+        "Laravel",
+        "PostgreSQL"
+      ]
+    },
+    {
+      title: "Currently Learning",
+      items: ["React", "Next.js", "Vitest"]
+    },
+    {
+      title: "Planning to Learn",
+      items: [
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Python",
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Go",
+        "GraphQL"
+      ]
+    }
+  ];
+  return (
+    <section 
+      id="skills" 
+      className="space-y-6 sm:space-y-8 px-4 sm:px-0"
+      aria-label="Skills and Technologies"
+    >
+      {skillCategories.map((category) => (
+        <div 
+          key={category.title} 
+          className="space-y-3 sm:space-y-4"
+          role="region"
+          aria-labelledby={`${category.title.toLowerCase().replace(/\s+/g, '-')}-heading`}
+        >
+          <h2 
+            id={`${category.title.toLowerCase().replace(/\s+/g, '-')}-heading`}
+            className="inter text-xl sm:text-2xl font-bold tracking-wide dark:text-gray-100"
+          >
+            {category.title}
+          </h2>
+          <div 
+            className="flex flex-wrap gap-1.5 sm:gap-2"
+            role="list"
+          >
+            {category.items.map((item) => (
+              <Badge
+                key={item}
+                variant="secondary"
+                className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-all hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800"
+                role="listitem"
+              >
+                {item}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+});
+
+Skills.displayName = 'Skills';
 
 export default Skills;
