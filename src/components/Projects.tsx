@@ -10,7 +10,7 @@ const projects = [
 		pictureAlt: "ocean.png",
 		title: "Titanic Dashboard",
 		description:
-			"This dashboard, built with TypeScript, React, Tailwind CSS, shadcn/ui, and AG Grid, lets you explore the Titanic dataset in an easy and interactive way. You can view passenger details, filter data, and analyze survival rates with just a few clicks.",
+			"This dashboard, built with TypeScript, React, Tailwind CSS, shadcn/ui, and AG Grid, lets you explore the Titanic dataset. You can view passenger details, filter data, and analyze survival rates.",
 		link: "https://titanic-dashboard.vercel.app/",
 		tools: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "AG Grid"],
 	},
@@ -21,14 +21,15 @@ const plannedProjects = [
 		id: 1,
 		status: "✅",
 		name: "Dashboard",
-		description: "Using table & charts to create a dashboard.",
+		description: "Using tables and charts to create a dashboard.",
 	},
 
 	{
 		id: 2,
 		status: "❌",
-		name: "API Server",
-		description: "Create a monolithic architecture api server using Go.",
+		name: "Human Resource Management System",
+		description:
+			"Information system that handles recruitment, daily time record, payroll, leave management, and employee evaluations.",
 	},
 ];
 

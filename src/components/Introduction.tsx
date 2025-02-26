@@ -16,17 +16,12 @@ function Introduction() {
 							hi andrei here <span className="animate-wave inline-block">🤙🏽</span>
 						</h1>
 						<p className="inter-desc text-lg md:text-m">
-							a{" "}
-							<span className="border-b-1 border-[#86EFAC] pb-0.1">
-								react frontend web developer
-							</span>{" "}
-							based in the Philippines.
+							a <span className="border-b-1 border-[#86EFAC] pb-0.1">react frontend web developer</span> based in the
+							Philippines.
 						</p>
 						<Alert>
 							<RiInformation2Line className="h-4 w-4" />
-							<AlertDescription>
-								Seeking opportunities for a junior frontend web developer position
-							</AlertDescription>
+							<AlertDescription>Seeking opportunities for a junior frontend web developer position.</AlertDescription>
 						</Alert>
 					</div>
 
