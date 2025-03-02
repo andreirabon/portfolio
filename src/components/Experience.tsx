@@ -118,14 +118,7 @@ function Experience() {
 	);
 }
 
-function EduTimelineItem({
-	logo,
-	startDate,
-	endDate,
-	level,
-	institution,
-	qualification,
-}: EduTimelineEntry) {
+function EduTimelineItem({ logo, startDate, endDate, level, institution, qualification }: EduTimelineEntry) {
 	return (
 		<div className="flex gap-3 p-3 relative">
 			<div className="shrink-0">
