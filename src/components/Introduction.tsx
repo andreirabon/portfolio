@@ -1,8 +1,7 @@
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { CgNotes } from "react-icons/cg";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiInformation2Line } from "react-icons/ri";
 function Introduction() {
 	return (
@@ -53,7 +52,7 @@ function Introduction() {
 					<Button
 						variant="outline"
 						className="inter group px-6 py-2 text-[#86EFAC] border-[#86EFAC] dark:hover:bg-[#86EFAC] dark:hover:text-black transition-all"
-						onClick={() => window.open("Andrei R. Rabon - Curriculum Vitae.pdf", "_blank")}>
+						onClick={() => window.open("Andrei R. Rabon - Curriculum Vitae v2.pdf", "_blank")}>
 						<CgNotes className="mr-2 group-hover:scale-110 transition-transform" />
 						<span>Curriculum Vitae</span>
 					</Button>

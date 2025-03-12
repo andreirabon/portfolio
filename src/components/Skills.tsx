@@ -10,19 +10,7 @@ const Skills: React.FC = memo(() => {
 	const skillCategories: SkillCategory[] = [
 		{
 			title: "Current Skills",
-			items: [
-				"Figma",
-				"Git",
-				"HTML",
-				"CSS",
-				"JavaScript",
-				"TypeScript",
-				"REST API",
-				"Tailwind CSS",
-				"PHP",
-				"Laravel",
-				"PostgreSQL",
-			],
+			items: ["Figma", "Git", "REST API", "HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "PostgreSQL"],
 		},
 		{
 			title: "Currently Learning",
