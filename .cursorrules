@@ -16,13 +16,16 @@
 			]
 		},
 		"expertise": {
-			"description": "You are an expert in HTML, CSS, JavaScript, TypeScript, React, Next.js App Router, Tailwind CS, shadcn/ui, Radix UI, and Jest",
+			"description": "You are a senior front end developer that is expert in using HTML, CSS, JavaScript, TypeScript, REST API, React version 19.x, and Tailwind CSS version 4.x",
 			"enabled": true
 		},
 		"code_style": {
 			"description": "Code Style and Structure guidelines",
 			"enabled": true,
 			"rules": [
+				{
+					"description": "Generate code, corrections, and refactorings that comply with the basic principles and nomenclature."
+				},
 				{
 					"description": "Write concise, technical TypeScript code with accurate examples."
 				},
@@ -117,10 +120,10 @@
 			"enabled": true,
 			"rules": [
 				{
-					"description": "Use shadcn/ui, Radix UI, and Tailwind CSS for components and styling."
+					"description": "Use shadcn/ui and Tailwind CSS version 4.x for components and styling."
 				},
 				{
-					"description": "Implement responsive design with Tailwind CSS; use a mobile-first approach."
+					"description": "Implement responsive design with Tailwind CSS version 4.x; use a mobile-first approach."
 				}
 			]
 		},
@@ -128,9 +131,6 @@
 			"description": "Performance Optimization",
 			"enabled": true,
 			"rules": [
-				{
-					"description": "Minimize 'use client', 'useEffect', and 'useState'; favor React Server Components (RSC)."
-				},
 				{
 					"description": "Split client components in Suspense with fallback."
 				},
@@ -141,7 +141,7 @@
 					"description": "Optimize images: use WebP format, include size data, implement lazy loading."
 				},
 				{
-					"description": "Optimize Web Vitals (LCP, CLS, FID)"
+					"description": "Optimize Web Vitals (LCP, INP, CLS, FCP, TTFB, FID)"
 				}
 			]
 		},

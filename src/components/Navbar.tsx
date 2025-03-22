@@ -1,20 +1,37 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Navbar: React.FC = () => {
 	const [activeSection, setActiveSection] = useState("home");
 
 	const handleScroll = useCallback(() => {
-		const sections = ["home", "experiences", "skills", "projects"];
-		const current = sections.find((section) => {
-			const element = document.getElementById(section);
-			if (element) {
-				const rect = element.getBoundingClientRect();
-				return rect.top <= 100 && rect.bottom >= 100;
+		// Add requestIdleCallback for better performance
+		const handler = () => {
+			const sections = document.querySelectorAll("section");
+			const scrollPosition = window.scrollY + 100;
+
+			let currentSection = "";
+			sections.forEach((section) => {
+				const top = section.offsetTop;
+				const height = section.offsetHeight;
+				const id = section.getAttribute("id") || "";
+
+				if (scrollPosition >= top && scrollPosition < top + height) {
+					currentSection = id;
+				}
+			});
+
+			if (currentSection !== activeSection) {
+				setActiveSection(currentSection);
+				history.replaceState(null, "", `#${currentSection}`);
 			}
-			return false;
-		});
-		if (current) setActiveSection(current);
-	}, []);
+		};
+
+		if (window.requestIdleCallback) {
+			window.requestIdleCallback(handler);
+		} else {
+			setTimeout(handler, 1);
+		}
+	}, [activeSection]);
 
 	useEffect(() => {
 		const throttledScroll = () => {

@@ -1,5 +1,6 @@
-import { lazy, Suspense } from "react";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Loader2 } from "lucide-react";
+import { lazy, Suspense } from "react";
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const Introduction = lazy(() => import("./components/Introduction"));
@@ -15,7 +16,7 @@ const LoadingSpinner = () => (
 
 function App() {
 	return (
-		<>
+		<ErrorBoundary>
 			<div className="mx-auto flex min-h-screen max-w-3xl flex-col px-8 dark:bg-black">
 				<Suspense fallback={<LoadingSpinner />}>
 					<Navbar />
@@ -27,7 +28,7 @@ function App() {
 					</div>
 				</Suspense>
 			</div>
-		</>
+		</ErrorBoundary>
 	);
 }
 
