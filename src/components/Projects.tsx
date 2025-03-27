@@ -31,6 +31,13 @@ const plannedProjects = [
     description:
       "Information system that handles recruitment, daily time record, payroll, leave management, and employee evaluations.",
   },
+
+  {
+    id: 3,
+    status: "❌",
+    name: "Backend Application Programming Interface (API)",
+    description: "Using Hono, Drizzle ORM, and PostgreSQL.",
+  },
 ];
 
 function Projects() {
