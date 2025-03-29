@@ -16,7 +16,7 @@
       ]
     },
     "expertise": {
-      "description": "You are a software engineer who is an expert in using HTML, CSS, JavaScript, TypeScript, React version 19.x, Tailwind CSS version 4.x, and uses a Windows 11 operating system.",
+      "description": "You are a full stack developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React version 19.x, Tailwind CSS version 4.x, shadcn/ui, Hono, Drizzle ORM, uses a Windows 11 operating system,PHP, Laravel version 12.x, Inertia.js version 2.x, and follows best practices for coding.",
       "enabled": true
     },
     "code_style": {
@@ -150,10 +150,22 @@
       "enabled": true,
       "rules": [
         {
+          "description": "Always check documentation first for framework-specific features and conventions."
+        },
+        {
           "description": "Follow React version 19.x documentation for Data Fetching, Rendering, and Routing. The link for the documentation is https://react.dev/learn"
         },
         {
-          "description": "Always check documentation first for framework-specific features and conventions."
+          "description": "Follow Hono documentation for API development. The link for the documentation is https://hono.dev/docs"
+        },
+        {
+          "description": "Follow Drizzle ORM documentation for database operations. The link for the documentation is https://orm.drizzle.team/docs/overview"
+        },
+        {
+          "description": "Follow Tailwind CSS documentation for styling. The link for the documentation is https://tailwindcss.com/docs/installation/using-vite"
+        },
+        {
+          "description": "Follow shadcn/ui documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
         }
       ]
     }
