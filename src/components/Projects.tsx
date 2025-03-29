@@ -20,8 +20,8 @@ const plannedProjects = [
   {
     id: 1,
     status: "✅",
-    name: "Dashboard",
-    description: "Using tables and charts to create a dashboard.",
+    name: "Titanic Dashboard",
+    description: "Using tables and charts to create a dashboard from the Titanic dataset.",
   },
 
   {
@@ -34,8 +34,17 @@ const plannedProjects = [
 
   {
     id: 3,
-    status: "❌",
-    name: "Backend Application Programming Interface (API)",
+    status: "🚧",
+    name: (
+      <a
+        href="https://github.com/andreirabon/hono-drizzle"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#86EFAC] hover:underline"
+      >
+        Backend Application Programming Interface (API)
+      </a>
+    ),
     description: "Using Hono, Drizzle ORM, and PostgreSQL.",
   },
 ];
