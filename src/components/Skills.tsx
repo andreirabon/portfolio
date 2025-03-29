@@ -26,11 +26,21 @@ const Skills: React.FC = memo(() => {
     },
     {
       title: "Currently Learning",
-      items: ["React", "Next.js", "Vitest", "Hono", "Drizzle ORM"],
+      items: ["React", "Inertia", "Vitest", "Hono", "Drizzle ORM"],
     },
     {
       title: "Planning to Learn",
-      items: ["React Native", "Expo", "Amazon Web Services (AWS)", "Docker", "Kubernetes", "Terraform", "Python", "Go"],
+      items: [
+        "Next.js",
+        "React Native",
+        "Expo",
+        "Amazon Web Services (AWS)",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Python",
+        "Go",
+      ],
     },
   ];
   return (
