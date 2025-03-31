@@ -15,7 +15,7 @@ function Introduction() {
               hi andrei here <span className="animate-wave inline-block">🤙🏽</span>
             </h1>
             <p className="inter-desc text-lg md:text-m">
-              a <span className="border-b-1 border-[#86EFAC] pb-0.1">full stack web developer</span> based in the
+              a <span className="border-b-1 border-[#86EFAC] pb-0.1">react frontend web developer</span> based in the
               Philippines.
             </p>
             <Alert>
