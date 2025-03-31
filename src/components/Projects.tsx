@@ -40,12 +40,11 @@ const plannedProjects = [
         href="https://github.com/andreirabon/hono-drizzle"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[#86EFAC] hover:underline"
-      >
+        className="text-[#86EFAC] hover:underline">
         Backend Application Programming Interface (API)
       </a>
     ),
-    description: "Using Hono, Drizzle ORM, and PostgreSQL.",
+    description: "Using Hono, (Drizzle or Prisma), and PostgreSQL.",
   },
 ];
 
