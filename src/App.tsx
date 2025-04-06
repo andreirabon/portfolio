@@ -21,9 +21,9 @@ function App() {
           <Navbar />
           <div className="space-y-8 py-8">
             <Introduction />
-            <Experience />
-            <Skills />
             <Projects />
+            <Skills />
+            <Experience />
           </div>
         </Suspense>
       </div>

@@ -28,8 +28,6 @@ const skillColorMap: Record<string, string> = {
   Docker: "bg-[#2496ED] hover:bg-[#1e7cc7]",
   Kubernetes: "bg-[#326CE5] hover:bg-[#2a5bc7]",
   Terraform: "bg-[#7B42BC] hover:bg-[#6a37a0]",
-  Python: "bg-[#3776AB] hover:bg-[#2e618f]",
-  Go: "bg-[#00ADD8] hover:bg-[#0093b8]",
 };
 
 const Skills: React.FC = memo(() => {
@@ -44,7 +42,7 @@ const Skills: React.FC = memo(() => {
     },
     {
       title: "Planning to Learn",
-      items: ["React Native", "Expo", "Amazon Web Services (AWS)", "Docker", "Kubernetes", "Terraform", "Python", "Go"],
+      items: ["React Native", "Expo", "Amazon Web Services (AWS)", "Docker", "Kubernetes", "Terraform"],
     },
   ];
   return (

@@ -4,7 +4,7 @@ const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   const handleScroll = useCallback(() => {
-    const sections = ["home", "experiences", "skills", "projects"];
+    const sections = ["home", "projects", "skills", "experiences"];
     const current = sections.find((section) => {
       const element = document.getElementById(section);
       if (element) {
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener("scroll", throttledScroll, { passive: true });
-    return () => window.removeEventListener("scroll", throttledScroll);
+    return () => { window.removeEventListener("scroll", throttledScroll); };
   }, [handleScroll]);
 
   return (
@@ -37,9 +37,9 @@ const Navbar: React.FC = () => {
       <div className="container flex items-center justify-center h-16 mx-auto overflow-x-auto gap-4 md:gap-8 px-4 md:px-8">
         {[
           { id: "home", label: "Home" },
-          { id: "experiences", label: "Experience" },
-          { id: "skills", label: "Tech Stack" },
           { id: "projects", label: "Projects" },
+          { id: "skills", label: "Skills" },
+          { id: "experiences", label: "Experiences" },
         ].map(({ id, label }) => (
           <a
             key={id}

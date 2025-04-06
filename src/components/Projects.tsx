@@ -20,8 +20,22 @@ const plannedProjects = [
   {
     id: 1,
     status: "✅",
-    name: "Titanic Dashboard",
-    description: "Using tables and charts to create a dashboard from the Titanic dataset.",
+    name: (
+      <a
+        href="https://github.com/andreirabon/titanic-dashboard"
+        target="_blank"
+        rel="noopener noreferrer">
+        Titanic Dashboard
+      </a>
+    ),
+    description: (
+      <a
+        href="https://github.com/andreirabon/titanic-dashboard"
+        target="_blank"
+        rel="noopener noreferrer">
+        Using tables and charts to create a dashboard from the Titanic dataset.
+      </a>
+    ),
   },
 
   {
@@ -37,14 +51,20 @@ const plannedProjects = [
     status: "🚧",
     name: (
       <a
-        href="https://github.com/andreirabon/hono-drizzle"
+        href="https://github.com/andreirabon/api-hono"
         target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#86EFAC] hover:underline">
-        Backend Application Programming Interface (API)
+        rel="noopener noreferrer">
+        Application Programming Interface (API)
       </a>
     ),
-    description: "Using Hono, (Drizzle or Prisma), and PostgreSQL.",
+    description: (
+      <a
+        href="https://github.com/andreirabon/api-hono"
+        target="_blank"
+        rel="noopener noreferrer">
+        Using Hono, Prisma, and PostgreSQL.
+      </a>
+    ),
   },
 ];
 
@@ -78,7 +98,7 @@ function Projects() {
       <h1
         id="projects"
         className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-        Featured Projects
+        Projects
       </h1>
       <Carousel className="w-full max-w-5xl mx-auto">
         <CarouselContent>
