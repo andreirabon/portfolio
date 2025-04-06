@@ -15,12 +15,12 @@ function Introduction() {
               hi andrei here <span className="animate-wave inline-block">🤙🏽</span>
             </h1>
             <p className="inter-desc text-lg md:text-m">
-              a <span className="border-b-1 border-white pb-0.1">react frontend developer</span> based in the
-              Philippines.
+              a <span className="border-b-1 border-white pb-0.1">React Frontend Developer</span> based in the
+              philippines.
             </p>
             <Alert>
               <RiInformation2Line className="h-4 w-4" />
-              <AlertDescription>Seeking opportunities for a junior react frontend developer position.</AlertDescription>
+              <AlertDescription>Seeking opportunities for a Junior React Frontend Developer position.</AlertDescription>
             </Alert>
           </div>
 
