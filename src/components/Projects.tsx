@@ -177,9 +177,9 @@ function Projects() {
           <h2
             id="planned-projects-heading"
             className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
-            Planned Projects
+            Projects
           </h2>
-          <p className="text-muted-foreground">Currently in progress or not started.</p>
+          <p className="text-muted-foreground">Currently in progress & not started.</p>
         </div>
         <Card className="overflow-hidden">
           {" "}
