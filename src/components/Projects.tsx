@@ -1,7 +1,8 @@
 // import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Card, CardContent } from "./ui/card";
+import { useState } from "react";
+import { CardContent } from "./ui/card";
 
 const projects = [
   {
@@ -48,7 +49,7 @@ const plannedProjects = [
 
   {
     id: 3,
-    status: "🚧",
+    status: "🏗️",
     name: (
       <a
         href="https://github.com/andreirabon/api-hono"
@@ -69,74 +70,98 @@ const plannedProjects = [
 ];
 
 function Projects() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
-      <h1
-        id="projects"
-        className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-        Planned Projects
-      </h1>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Status</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Description</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {plannedProjects.map((project) => (
-            <TableRow key={project.id}>
-              <TableCell className="font-medium">{project.status}</TableCell>
-              <TableCell>{project.name}</TableCell>
-              <TableCell>{project.description}</TableCell>
+      <div className="space-y-2 mb-6">
+        <h1 className="inter text-2xl font-bold tracking-wide dark:text-gray-100"> Planned Projects</h1>
+      </div>
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-muted/50">
+              <TableHead className="w-[100px] font-semibold">Status</TableHead>
+              <TableHead className="font-semibold">Name</TableHead>
+              <TableHead className="font-semibold">Description</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {plannedProjects.map((project) => (
+              <TableRow
+                key={project.id}
+                className="hover:bg-muted/50 transition-colors">
+                <TableCell className="font-medium">
+                  <span className="inline-flex items-center justify-center w-6 h-6">{project.status}</span>
+                </TableCell>
+                <TableCell>{project.name}</TableCell>
+                <TableCell className="text-muted-foreground">{project.description}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
       <br />
       <h1
         id="projects"
         className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
         Projects
       </h1>
-      <Carousel className="w-full max-w-5xl mx-auto">
+      <Carousel
+        className="w-full max-w-5xl mx-auto"
+        opts={{
+          align: "start",
+          loop: true,
+          autoplay: true,
+          interval: 5000,
+        }}>
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.id}>
               <div className="p-3">
-                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500"></div>
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group">
                   <CardContent className="p-0">
                     <div className="relative group">
                       <img
                         src={project.picture}
                         alt={project.pictureAlt}
                         className="w-full h-72 object-cover brightness-90 group-hover:brightness-100 transition-all duration-500"
+                        loading="lazy"
+                        onLoad={() => {
+                          setIsLoading(false);
+                        }}
                       />
+                      {isLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white" />
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
                     </div>
                     <div className="p-8 space-y-6">
-                      <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-6 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">
+                          View Project
+                        </a>
+                      </div>
                       <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">{project.description}</p>
                       <div className="flex flex-wrap gap-3">
                         {project.tools.map((tool) => (
                           <span
                             key={tool}
-                            className="px-4 py-1.5 text-sm font-medium bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-300 rounded-lg">
+                            className="px-4 py-1.5 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200 rounded-lg">
                             {tool}
                           </span>
                         ))}
                       </div>
-                      <a
-                        href={project.link}
-                        className="group flex items-center justify-between w-full px-6 py-4 text-white bg-gray-900 dark:bg-gray-700 rounded-xl hover:bg-blue-600 dark:hover:bg-blue-600 transition-colors duration-300">
-                        <span className="text-base font-medium">View Project</span>
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                      </a>
                     </div>
                   </CardContent>
-                </Card>
+                </div>
               </div>
             </CarouselItem>
           ))}

@@ -6,6 +6,25 @@ interface SkillCategory {
   items: string[];
 }
 
+const skillColors: Record<string, { bg: string; text: string }> = {
+  TypeScript: { bg: "#3178C6", text: "#ffffff" },
+  "Tailwind CSS": { bg: "#38BDF8", text: "#ffffff" },
+  "REST API": { bg: "#6B7280", text: "#ffffff" },
+  HTML: { bg: "#E34F26", text: "#ffffff" },
+  CSS: { bg: "#1572B6", text: "#ffffff" },
+  JavaScript: { bg: "#F7DF1E", text: "#000000" },
+  PHP: { bg: "#777BB4", text: "#ffffff" },
+  Laravel: { bg: "#FF2D20", text: "#ffffff" },
+  React: { bg: "#61DAFB", text: "#000000" },
+  Vitest: { bg: "#729B1B", text: "#ffffff" },
+  "Next.js": { bg: "#171717", text: "#ffffff" },
+  "TanStack Start": { bg: "#06B6D4", text: "#000000" },
+  ArkType: { bg: "#0EA5E9", text: "#ffffff" },
+  GraphQL: { bg: "#E535AB", text: "#ffffff" },
+  "React Native": { bg: "#61DAFB", text: "#000000" },
+  Expo: { bg: "#0A192F", text: "#ffffff" },
+};
+
 const Skills: React.FC = memo(() => {
   const skillCategories: SkillCategory[] = [
     {
@@ -14,7 +33,7 @@ const Skills: React.FC = memo(() => {
     },
     {
       title: "Currently Learning",
-      items: ["React", "Vitest", "Next.js", "TanStack", "ArkType", "Jotai"],
+      items: ["React", "Vitest", "Next.js", "TanStack Start", "ArkType"],
     },
     {
       title: "Planning to Learn",
@@ -44,7 +63,11 @@ const Skills: React.FC = memo(() => {
               <Badge
                 key={item}
                 variant="secondary"
-                className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-all hover:scale-105 bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700"
+                style={{
+                  backgroundColor: skillColors[item].bg,
+                  color: skillColors[item].text,
+                }}
+                className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-all hover:scale-105 dark:hover:bg-slate-800"
                 role="listitem">
                 {item}
               </Badge>

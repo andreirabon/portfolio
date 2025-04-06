@@ -29,7 +29,9 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener("scroll", throttledScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", throttledScroll); };
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+    };
   }, [handleScroll]);
 
   return (

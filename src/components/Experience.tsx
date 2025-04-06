@@ -80,14 +80,22 @@ function Experience() {
       <Tabs
         defaultValue="work"
         className="h-full w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="work">Work</TabsTrigger>
-          <TabsTrigger value="education">Education</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 mb-6">
+          <TabsTrigger
+            value="work"
+            className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            Work History
+          </TabsTrigger>
+          <TabsTrigger
+            value="education"
+            className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            Education
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="work">
-          <Card>
-            <CardContent>
+          <Card className="border-slate-700/30 bg-slate-900/50 backdrop-blur-sm">
+            <CardContent className="p-6">
               <div>
                 {work.map((entry) => (
                   <WorkTimelineItem
@@ -100,8 +108,8 @@ function Experience() {
           </Card>
         </TabsContent>
         <TabsContent value="education">
-          <Card>
-            <CardContent>
+          <Card className="border-slate-700/30 bg-slate-900/50 backdrop-blur-sm">
+            <CardContent className="p-6">
               <div>
                 {education.map((entry) => (
                   <EduTimelineItem
@@ -120,9 +128,9 @@ function Experience() {
 
 function EduTimelineItem({ logo, startDate, endDate, level, institution, qualification }: EduTimelineEntry) {
   return (
-    <div className="flex gap-3 p-3 relative">
-      <div className="shrink-0">
-        <div className="border border-slate-700 rounded-full bg-slate-900 size-16 overflow-hidden">
+    <div className="flex gap-3 p-3 relative transition-all duration-300 hover:bg-slate-800/50 rounded-lg cursor-pointer group">
+      <div className="shrink-0 transition-transform group-hover:scale-105">
+        <div className="border border-slate-700/50 rounded-full bg-slate-900/90 size-16 overflow-hidden shadow-lg">
           <img
             src={logo || "/placeholder.svg"}
             alt={`${institution} logo`}
@@ -134,13 +142,13 @@ function EduTimelineItem({ logo, startDate, endDate, level, institution, qualifi
         </div>
       </div>
 
-      <div className="space-y-1">
-        <div className="text-sm text-slate-400">
+      <div className="space-y-2">
+        <div className="text-sm font-medium text-primary">
           {startDate} – {endDate}
         </div>
-        <p className="text-slate-400 text-sm">{level}</p>
-        <h2 className="text-slate-200 font-semibold">{institution}</h2>
-        <p className="text-slate-400 text-sm">{qualification}</p>
+        <h2 className="text-slate-200 font-semibold text-lg">{qualification}</h2>
+        <p className="text-sm text-slate-400/70">{level}</p>
+        <p className="text-sm text-slate-400/70">{institution}</p>
       </div>
     </div>
   );
@@ -148,9 +156,9 @@ function EduTimelineItem({ logo, startDate, endDate, level, institution, qualifi
 
 function WorkTimelineItem({ logo, startDate, endDate, employer, role }: WorkTimelineEntry) {
   return (
-    <div className="flex gap-3 p-3 relative">
-      <div className="shrink-0">
-        <div className="border border-slate-700 rounded-full bg-slate-900 size-16 overflow-hidden">
+    <div className="flex gap-3 p-3 relative transition-all duration-300 hover:bg-slate-800/50 rounded-lg cursor-pointer group">
+      <div className="shrink-0 transition-transform group-hover:scale-105">
+        <div className="border border-slate-700/50 rounded-full bg-slate-900/90 size-16 overflow-hidden shadow-lg">
           <img
             src={logo || "/placeholder.svg"}
             alt={`${employer} logo`}
@@ -162,13 +170,18 @@ function WorkTimelineItem({ logo, startDate, endDate, employer, role }: WorkTime
         </div>
       </div>
 
-      <div className="space-y-1">
-        <div className="text-sm text-slate-400">
+      <div className="space-y-2">
+        <div className="text-sm font-medium text-primary">
           {startDate} – {endDate}
         </div>
-        <h2 className="text-slate-200 font-semibold">{employer}</h2>
-        <p className="text-sm text-slate-400">{role}</p>
+        <h2 className="text-slate-200 font-semibold text-lg">{role}</h2>
+        <p className="text-sm text-slate-400/70">{employer}</p>
       </div>
+      {endDate === "Present" && (
+        <span className="absolute right-4 top-4 px-2 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full">
+          Current
+        </span>
+      )}
     </div>
   );
 }
