@@ -1,14 +1,31 @@
-// import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useState } from "react";
-import { CardContent } from "./ui/card";
 
-const projects = [
+interface Project {
+  id: number;
+  picture: string;
+  pictureAlt: string;
+  title: string;
+  description: string;
+  link: string;
+  tools: string[];
+}
+
+interface PlannedProject {
+  id: number;
+  status: string;
+  statusAriaLabel: string;
+  name: React.ReactNode;
+  description: React.ReactNode;
+}
+
+const projectsData: Project[] = [
   {
     id: 1,
     picture: "/titanic-dashboard.png",
-    pictureAlt: "ocean.png",
+    pictureAlt: "Screenshot of the Titanic Dashboard showing charts and data grids",
     title: "Titanic Dashboard",
     description:
       "This dashboard, built with TypeScript, React, Tailwind CSS, shadcn/ui, and AG Grid, lets you explore the Titanic dataset. You can view passenger details, filter data, and analyze survival rates.",
@@ -17,160 +34,188 @@ const projects = [
   },
 ];
 
-const plannedProjects = [
+const plannedProjectsData: PlannedProject[] = [
   {
     id: 1,
-    status: "✅",
-    name: (
-      <a
-        href="https://github.com/andreirabon/titanic-dashboard"
-        target="_blank"
-        rel="noopener noreferrer">
-        Titanic Dashboard
-      </a>
-    ),
-    description: (
-      <a
-        href="https://github.com/andreirabon/titanic-dashboard"
-        target="_blank"
-        rel="noopener noreferrer">
-        Using tables and charts to create a dashboard from the Titanic dataset.
-      </a>
-    ),
+    status: "❌",
+    statusAriaLabel: "Not Started",
+    name: "UI/UX only - Human Resource Management System",
+    description:
+      "Information system handling recruitment, daily time record, payroll, leave management, and employee evaluations.",
   },
-
   {
     id: 2,
-    status: "❌",
-    name: "Human Resource Management System",
-    description:
-      "Information system that handles recruitment, daily time record, payroll, leave management, and employee evaluations.",
-  },
-
-  {
-    id: 3,
     status: "🏗️",
+    statusAriaLabel: "In Progress",
     name: (
       <a
         href="https://github.com/andreirabon/api-hono"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+        className="hover:underline text-blue-600 dark:text-blue-400">
         Application Programming Interface (API)
       </a>
     ),
     description: (
-      <a
-        href="https://github.com/andreirabon/api-hono"
-        target="_blank"
-        rel="noopener noreferrer">
-        Using Hono, Prisma, and PostgreSQL.
-      </a>
+      <>
+        Using Hono, Prisma, and PostgreSQL. (
+        <a
+          href="https://github.com/andreirabon/api-hono"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline text-blue-600 dark:text-blue-400">
+          GitHub
+        </a>
+        )
+      </>
     ),
   },
 ];
 
-function Projects() {
-  const [isLoading, setIsLoading] = useState(true);
+interface ProjectCardProps {
+  project: Project;
+}
+
+function ProjectCard({ project }: ProjectCardProps) {
+  const [isImageLoading, setIsImageLoading] = useState(true);
 
   return (
-    <>
-      <div className="space-y-2 mb-6">
-        <h1 className="inter text-2xl font-bold tracking-wide dark:text-gray-100"> Planned Projects</h1>
-      </div>
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden">
-        <Table>
-          <TableHeader>
-            <TableRow className="bg-muted/50">
-              <TableHead className="w-[100px] font-semibold">Status</TableHead>
-              <TableHead className="font-semibold">Name</TableHead>
-              <TableHead className="font-semibold">Description</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {plannedProjects.map((project) => (
-              <TableRow
-                key={project.id}
-                className="hover:bg-muted/50 transition-colors">
-                <TableCell className="font-medium">
-                  <span className="inline-flex items-center justify-center w-6 h-6">{project.status}</span>
-                </TableCell>
-                <TableCell>{project.name}</TableCell>
-                <TableCell className="text-muted-foreground">{project.description}</TableCell>
-              </TableRow>
+    <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group m-1 bg-card">
+      <CardContent className="p-0">
+        <div className="relative">
+          {isImageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+            </div>
+          )}
+
+          <img
+            src={project.picture}
+            alt={project.pictureAlt}
+            className={`w-full h-72 object-cover transition-all duration-500 ${
+              isImageLoading ? "opacity-0" : "opacity-100 brightness-90 group-hover:brightness-100"
+            }`}
+            loading="lazy"
+            onLoad={() => {
+              setIsImageLoading(false);
+            }}
+            onError={() => {
+              setIsImageLoading(false);
+            }}
+          />
+        </div>
+        <div className="p-6 md:p-8 space-y-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-card-foreground">{project.title}</h3>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-5 py-2 bg-green-500 text-white font-medium rounded-md text-sm hover:bg-green-700 transition-colors whitespace-nowrap">
+              View Project
+            </a>
+          </div>
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{project.description}</p>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {project.tools.map((tool) => (
+              <span
+                key={tool}
+                className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full transition-colors hover:bg-primary hover:text-primary-foreground">
+                {tool}
+              </span>
             ))}
-          </TableBody>
-        </Table>
-      </div>
-      <br />
-      <h1
-        id="projects"
-        className="inter text-2xl font-bold tracking-wide dark:text-gray-100">
-        Projects
-      </h1>
-      <Carousel
-        className="w-full max-w-5xl mx-auto"
-        opts={{
-          align: "start",
-          loop: true,
-          autoplay: true,
-          interval: 5000,
-        }}>
-        <CarouselContent>
-          {projects.map((project) => (
-            <CarouselItem key={project.id}>
-              <div className="p-3">
-                <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group">
-                  <CardContent className="p-0">
-                    <div className="relative group">
-                      <img
-                        src={project.picture}
-                        alt={project.pictureAlt}
-                        className="w-full h-72 object-cover brightness-90 group-hover:brightness-100 transition-all duration-500"
-                        loading="lazy"
-                        onLoad={() => {
-                          setIsLoading(false);
-                        }}
-                      />
-                      {isLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white" />
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-                    </div>
-                    <div className="p-8 space-y-6">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-6 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">
-                          View Project
-                        </a>
-                      </div>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">{project.description}</p>
-                      <div className="flex flex-wrap gap-3">
-                        {project.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="px-4 py-1.5 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200 rounded-lg">
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="-left-4 h-12 w-12 border-0 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700" />
-        <CarouselNext className="-right-4 h-12 w-12 border-0 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700" />
-      </Carousel>
-      <br />
-    </>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function Projects() {
+  return (
+    <div className="space-y-10 md:space-y-12">
+      <section aria-labelledby="projects-heading">
+        <div className="space-y-3 mb-5">
+          <h2
+            id="projects-heading"
+            className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
+            Featured Projects ({projectsData.length})
+          </h2>
+          <p className="text-muted-foreground">Showcase of completed work.</p>
+        </div>
+        {projectsData.length > 0 ? (
+          <Carousel
+            className="w-full max-w-5xl mx-auto"
+            opts={{
+              align: "start",
+              loop: projectsData.length > 1,
+            }}>
+            <CarouselContent className="-ml-4">
+              {" "}
+              {projectsData.map((project) => (
+                <CarouselItem
+                  key={project.id}
+                  className="pl-4 md:basis-1/1 lg:basis-1/1">
+                  {" "}
+                  <ProjectCard project={project} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {projectsData.length > 1 && (
+              <>
+                <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
+                <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
+              </>
+            )}
+          </Carousel>
+        ) : (
+          <p className="text-muted-foreground italic text-center">No featured projects to display yet.</p>
+        )}
+      </section>
+      <section aria-labelledby="planned-projects-heading">
+        <div className="space-y-3 mb-5">
+          <h2
+            id="planned-projects-heading"
+            className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
+            Planned Projects
+          </h2>
+          <p className="text-muted-foreground">Currently in progress or not started.</p>
+        </div>
+        <Card className="overflow-hidden">
+          {" "}
+          <CardContent className="p-0">
+            {" "}
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50">
+                  <TableHead className="w-[80px] sm:w-[100px] font-semibold text-center">Status</TableHead>
+                  <TableHead className="font-semibold">Name</TableHead>
+                  <TableHead className="font-semibold hidden md:table-cell">Description</TableHead>{" "}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {plannedProjectsData.map((project) => (
+                  <TableRow
+                    key={project.id}
+                    className="hover:bg-muted/50 transition-colors">
+                    <TableCell className="font-medium text-center">
+                      <span
+                        aria-label={project.statusAriaLabel}
+                        className="inline-flex items-center justify-center w-6 h-6 text-xl"
+                        role="img">
+                        {project.status}
+                      </span>
+                    </TableCell>
+                    <TableCell className="font-medium">{project.name}</TableCell>
+                    <TableCell className="text-muted-foreground hidden md:table-cell">{project.description}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+    </div>
   );
 }
 

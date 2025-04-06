@@ -25,21 +25,24 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   Expo: { bg: "#0A192F", text: "#ffffff" },
 };
 
+const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Current Skills",
+    items: ["TypeScript", "Tailwind CSS", "REST API", "HTML", "CSS", "JavaScript", "PHP", "Laravel"],
+  },
+  {
+    title: "Currently Learning",
+    items: ["React", "Vitest", "Next.js", "TanStack Start", "ArkType"],
+  },
+  {
+    title: "Planning to Learn",
+    items: ["GraphQL", "React Native", "Expo"],
+  },
+];
+
 const Skills: React.FC = memo(() => {
-  const skillCategories: SkillCategory[] = [
-    {
-      title: "Current Skills",
-      items: ["TypeScript", "Tailwind CSS", "REST API", "HTML", "CSS", "JavaScript", "PHP", "Laravel"],
-    },
-    {
-      title: "Currently Learning",
-      items: ["React", "Vitest", "Next.js", "TanStack Start", "ArkType"],
-    },
-    {
-      title: "Planning to Learn",
-      items: ["GraphQL", "React Native", "Expo"],
-    },
-  ];
   return (
     <section
       id="skills"
@@ -59,19 +62,22 @@ const Skills: React.FC = memo(() => {
           <div
             className="flex flex-wrap gap-1.5 sm:gap-2"
             role="list">
-            {category.items.map((item) => (
-              <Badge
-                key={item}
-                variant="secondary"
-                style={{
-                  backgroundColor: skillColors[item].bg,
-                  color: skillColors[item].text,
-                }}
-                className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-all hover:scale-105 dark:hover:bg-slate-800"
-                role="listitem">
-                {item}
-              </Badge>
-            ))}
+            {category.items.map((item) => {
+              const colors = skillColors[item] || defaultSkillColor;
+              return (
+                <Badge
+                  key={item}
+                  variant="secondary"
+                  style={{
+                    backgroundColor: colors.bg,
+                    color: colors.text,
+                  }}
+                  className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-transform duration-150 ease-in-out hover:scale-105" //
+                  role="listitem">
+                  {item}
+                </Badge>
+              );
+            })}
           </div>
         </div>
       ))}
