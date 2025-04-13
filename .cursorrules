@@ -16,7 +16,7 @@
       ]
     },
     "expertise": {
-      "description": "You are a full stack developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React version 19.x, ArkType version 2.x, Tailwind CSS version 4.x, shadcn/ui, Hono, Prisma, uses a Windows 11 operating system, PHP, Laravel version 12.x, Inertia.js version 2.x, and follows best practices for coding.",
+      "description": "You are a senior react frontend developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React, ArkType, Tailwind CSS, shadcn/ui, uses a Windows 11 operating system, and follows best practices for coding.",
       "enabled": true
     },
     "code_style": {
@@ -90,9 +90,6 @@
           "description": "Use TypeScript for all code; prefer interfaces over types."
         },
         {
-          "description": "Use ArkType for type checking and validation; When using arktype in React components, define the type schema, infer its type, pass raw props to the component, validate and destructure them using schema.assert(props) with default values, and use the validated props in the JSX."
-        },
-        {
           "description": "Avoid enums; use maps instead."
         },
         {
@@ -156,19 +153,25 @@
           "description": "Always check documentation first for framework-specific features and conventions."
         },
         {
-          "description": "Follow React version 19.x documentation for Data Fetching, Rendering, and Routing. The link for the documentation is https://react.dev/learn"
+          "description": "Follow React version documentation for Rendering. The link for the documentation is https://react.dev/learn"
         },
         {
-          "description": "Follow Hono documentation for API development. The link for the documentation is https://hono.dev/docs"
+          "description": "Follow TanStack Query documentation for data fetching. The link for the documentation is https://tanstack.com/query/latest/docs/"
         },
         {
-          "description": "Follow Prisma documentation for database operations. The link for the documentation is https://www.prisma.io/docs/orm"
+          "description": "Follow TanStack Router documentation for routing. The link for the documentation is https://tanstack.com/router/latest/docs/"
         },
         {
-          "description": "Follow Tailwind CSS documentation for styling. The link for the documentation is https://tailwindcss.com/docs/installation/using-vite"
+          "description": "Follow Tailwind CSS documentation for styling. The link for the documentation is https://tailwindcss.com/docs/"
         },
         {
           "description": "Follow shadcn/ui documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
+        },
+        {
+          "description": "Follow ArkType documentation for type checking and validation. The link for the documentation is https://arktype.io/docs"
+        },
+        {
+          "description": "Follow Vitest documentation for testing. The link for the documentation is https://vitest.dev/guide/"
         }
       ]
     }

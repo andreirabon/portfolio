@@ -37,14 +37,6 @@ const projectsData: Project[] = [
 const plannedProjectsData: PlannedProject[] = [
   {
     id: 1,
-    status: "❌",
-    statusAriaLabel: "Not Started",
-    name: "UI/UX only - Human Resource Management System",
-    description:
-      "Information system handling recruitment, daily time record, payroll, leave management, and employee evaluations.",
-  },
-  {
-    id: 2,
     status: "🏗️",
     statusAriaLabel: "In Progress",
     name: (
@@ -53,7 +45,7 @@ const plannedProjectsData: PlannedProject[] = [
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline text-blue-600 dark:text-blue-400">
-        Application Programming Interface (API)
+        Backend Application Programming Interface (API)
       </a>
     ),
     description: (
