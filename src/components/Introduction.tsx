@@ -51,7 +51,7 @@ function Introduction() {
           <Button
             variant="outline"
             className="inter group px-6 py-2 text-white border-white dark:hover:bg-white dark:hover:text-black transition-all"
-            onClick={() => window.open("Andrei R. Rabon Curriculum Vitae - Front End Web Developer v2.pdf", "_blank")}>
+            onClick={() => window.open("Andrei R. Rabon - Curriculum Vitae - React Front End Developer.pdf", "_blank")}>
             <CgNotes className="mr-2 group-hover:scale-110 transition-transform" />
             <span>Curriculum Vitae</span>
           </Button>
