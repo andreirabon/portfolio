@@ -16,7 +16,7 @@
       ]
     },
     "expertise": {
-      "description": "You are a senior react frontend developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React, ArkType, Tailwind CSS, shadcn/ui, uses a Windows 11 operating system, and follows best practices for coding.",
+      "description": "You are a senior react frontend developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React, ArkType, Tailwind CSS, shadcn/ui, PHP, Laravel, Blade, uses a Windows 11 operating system, and follows best practices for coding.",
       "enabled": true
     },
     "code_style": {
@@ -90,6 +90,9 @@
           "description": "Use TypeScript for all code; prefer interfaces over types."
         },
         {
+          "description": "Use ArkType for type checking and validation; When using arktype in React components, define the type schema, infer its type, pass raw props to the component, validate and destructure them using schema.assert(props) with default values, and use the validated props in the JSX."
+        },
+        {
           "description": "Avoid enums; use maps instead."
         },
         {
@@ -97,6 +100,12 @@
         },
         {
           "description": "Enable strict mode in TypeScript for better type safety."
+        },
+        {
+          "description": "Disallow use of 'any' and unsafe type assertions."
+        },
+        {
+          "description": "Enforce 'noImplicitAny' and 'strictNullChecks' in tsconfig.json."
         }
       ]
     },
@@ -141,7 +150,67 @@
           "description": "Optimize images: use WebP format, include size data, implement lazy loading."
         },
         {
-          "description": "Optimize Web Vitals (LCP, INP, CLS, FCP, TTFB, FID)"
+          "description": "Optimize Largest Contentful Paint (LCP)",
+          "steps": [
+            "Prioritize loading of above-the-fold content and critical CSS.",
+            "Defer non-critical JS and CSS using dynamic imports and Suspense.",
+            "Use <img> with loading='lazy' for below-the-fold images; avoid for LCP image.",
+            "Serve LCP images in WebP format with explicit width/height and priority loading.",
+            "Minimize server response time for LCP element (see TTFB)."
+          ]
+        },
+        {
+          "description": "Optimize Interaction to Next Paint (INP)",
+          "steps": [
+            "Debounce or throttle input handlers for high-frequency events.",
+            "Use React.useTransition for non-blocking state updates.",
+            "Avoid synchronous, blocking JS in event handlers.",
+            "Split large components and use React.lazy for non-critical UI."
+          ]
+        },
+        {
+          "description": "Optimize Cumulative Layout Shift (CLS)",
+          "steps": [
+            "Always set explicit width and height for images, videos, and embeds.",
+            "Avoid inserting content above existing content except for user-initiated actions.",
+            "Reserve space for dynamic content (e.g., skeleton loaders, aspect-ratio utilities).",
+            "Never use layout-shifting ads or popups."
+          ]
+        },
+        {
+          "description": "Optimize First Contentful Paint (FCP)",
+          "steps": [
+            "Minimize main bundle size; use code splitting and tree shaking.",
+            "Inline critical CSS for above-the-fold content.",
+            "Preload key fonts and critical resources.",
+            "Avoid render-blocking scripts/styles."
+          ]
+        },
+        {
+          "description": "Optimize Time to First Byte (TTFB)",
+          "steps": [
+            "Use server-side caching for HTML and API responses.",
+            "Minimize server-side computation in SSR/SSG.",
+            "Use CDN for static assets and edge functions where possible.",
+            "Monitor and alert on backend latency."
+          ]
+        },
+        {
+          "description": "Optimize First Input Delay (FID)",
+          "steps": [
+            "Keep main thread free during initial load; avoid heavy JS execution.",
+            "Defer non-essential JS with async/defer or dynamic import.",
+            "Use web workers for heavy computation.",
+            "Minimize third-party scripts."
+          ]
+        },
+        {
+          "description": "Web Vitals Measurement and Regression Prevention",
+          "steps": [
+            "Instrument Web Vitals measurement in development and production using web-vitals library.",
+            "Fail CI if any Web Vital exceeds defined thresholds.",
+            "Log and monitor Web Vitals in production (e.g., via Google Analytics or custom endpoint)."
+          ]
         }
       ]
     },
@@ -150,28 +219,70 @@
       "enabled": true,
       "rules": [
         {
-          "description": "Always check documentation first for framework-specific features and conventions."
+          "description": "Always check latest documentation first for framework-specific features and conventions."
         },
         {
-          "description": "Follow React version documentation for Rendering. The link for the documentation is https://react.dev/learn"
+          "description": "Follow React version latest documentation for Rendering. The link for the documentation is https://react.dev/learn"
         },
         {
-          "description": "Follow TanStack Query documentation for data fetching. The link for the documentation is https://tanstack.com/query/latest/docs/"
+          "description": "Follow TanStack Query latest documentation for data fetching. The link for the documentation is https://tanstack.com/query/latest/docs/"
         },
         {
-          "description": "Follow TanStack Router documentation for routing. The link for the documentation is https://tanstack.com/router/latest/docs/"
+          "description": "Follow TanStack Router latest documentation for routing. The link for the documentation is https://tanstack.com/router/latest/docs/"
         },
         {
-          "description": "Follow Tailwind CSS documentation for styling. The link for the documentation is https://tailwindcss.com/docs/"
+          "description": "Follow Tailwind CSS latest documentation for styling. The link for the documentation is https://tailwindcss.com/docs/"
         },
         {
-          "description": "Follow shadcn/ui documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
+          "description": "Follow shadcn/ui latest documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
         },
         {
-          "description": "Follow ArkType documentation for type checking and validation. The link for the documentation is https://arktype.io/docs"
+          "description": "Follow ArkType latest documentation for type checking and validation. The link for the documentation is https://arktype.io/docs"
+        }
+      ]
+    },
+    "testing": {
+      "description": "Testing and Code Quality",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "All new code must include unit tests with at least 90% coverage, measured by Vitest.",
+          "steps": [
+            "Write unit tests for all new functions and components.",
+            "Measure coverage using Vitest.",
+            "Fail CI if coverage drops below 90%."
+          ]
         },
         {
-          "description": "Follow Vitest documentation for testing. The link for the documentation is https://vitest.dev/guide/"
+          "description": "All UI components must be accessible via keyboard and screen readers.",
+          "steps": [
+            "Test components with axe-core.",
+            "Fix all critical and serious accessibility violations before merging."
+          ]
+        },
+        {
+          "description": "Write integration and E2E tests for critical user flows."
+        },
+        {
+          "description": "Test error and edge cases for all exported functions/components."
+        },
+        {
+          "description": "Ensure test isolation and cleanup."
+        }
+      ]
+    },
+    "error_handling": {
+      "description": "Error Handling",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use error boundaries for all React subtrees."
+        },
+        {
+          "description": "Log errors with context; never swallow errors silently."
+        },
+        {
+          "description": "Provide user feedback for all recoverable errors."
         }
       ]
     }
