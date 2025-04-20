@@ -37,7 +37,7 @@ const projectsData: Project[] = [
 const plannedProjectsData: PlannedProject[] = [
   {
     id: 1,
-    status: "🏗️",
+    status: "🚧",
     statusAriaLabel: "In Progress",
     name: (
       <a
@@ -45,12 +45,13 @@ const plannedProjectsData: PlannedProject[] = [
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline text-blue-600 dark:text-blue-400">
-        Backend Application Programming Interface (API)
+        Wedding Planner
       </a>
     ),
     description: (
       <>
-        Using Hono, Prisma, and PostgreSQL. (
+        A web application for planning weddings, including invitations and details.
+        {/* (
         <a
           href="https://github.com/andreirabon/api-hono"
           target="_blank"
@@ -58,7 +59,7 @@ const plannedProjectsData: PlannedProject[] = [
           className="hover:underline text-blue-600 dark:text-blue-400">
           GitHub
         </a>
-        )
+        ) */}
       </>
     ),
   },
