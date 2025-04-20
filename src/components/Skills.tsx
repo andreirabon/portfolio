@@ -13,21 +13,22 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   HTML: { bg: "#E34F26", text: "#ffffff" },
   CSS: { bg: "#1572B6", text: "#ffffff" },
   JavaScript: { bg: "#F7DF1E", text: "#000000" },
-  PHP: { bg: "#777BB4", text: "#ffffff" },
-  Laravel: { bg: "#FF2D20", text: "#ffffff" },
   React: { bg: "#61DAFB", text: "#000000" },
   Vitest: { bg: "#FCC72B", text: "#000000" },
   "Next.js": { bg: "#171717", text: "#ffffff" },
   "TanStack Start": { bg: "#06B6D4", text: "#000000" },
   "TanStack Query": { bg: "#ef4841", text: "#000000" },
-  "TanStack Router": { bg: "#10B981", text: "#000000" },
   Jotai: { bg: "white", text: "#000000" },
   "Better Auth": { bg: "white", text: "#000000" },
-  Supabase: { bg: "#3fcf8f", text: "#000000" },
-  ArkType: { bg: "#0EA5E9", text: "#ffffff" },
   GraphQL: { bg: "#E535AB", text: "#ffffff" },
   "React Native": { bg: "#61DAFB", text: "#000000" },
   Expo: { bg: "#0A192F", text: "#ffffff" },
+  "Microsoft Playwright": { bg: "#45BA4B", text: "#ffffff" },
+  Zod: { bg: "#142641", text: "#ffffff" },
+  "Drizzle ORM": { bg: "#C5F74F", text: "#000000" },
+  tRPC: { bg: "#2C3E50", text: "white" },
+  Python: { bg: "#306998", text: "#ffffff" },
+  Terraform: { bg: "#623CE4", text: "#ffffff" },
 };
 
 const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
@@ -35,25 +36,15 @@ const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
 const skillCategories: SkillCategory[] = [
   {
     title: "Current Skills",
-    items: ["TypeScript", "Tailwind CSS", "REST API", "HTML", "CSS", "JavaScript", "PHP", "Laravel"],
+    items: ["TypeScript", "Tailwind CSS", "REST API", "HTML", "CSS", "JavaScript", "Microsoft Playwright"],
   },
   {
     title: "Currently Learning",
-    items: [
-      "React",
-      "Next.js",
-      "Vitest",
-      "ArkType",
-      "TanStack Query",
-      "TanStack Router",
-      "Jotai",
-      "Better Auth",
-      "Supabase",
-    ],
+    items: ["React", "Next.js", "Vitest", "Zod", "TanStack Query", "Jotai", "Better Auth", "Drizzle ORM"],
   },
   {
     title: "Planning to Learn",
-    items: ["GraphQL", "React Native", "Expo"],
+    items: ["tRPC", "GraphQL", "React Native", "Expo", "Python", "Terraform"],
   },
 ];
 
