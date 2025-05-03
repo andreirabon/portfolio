@@ -10,9 +10,6 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   TypeScript: { bg: "#3178C6", text: "#ffffff" },
   "Tailwind CSS": { bg: "#38BDF8", text: "#ffffff" },
   "REST API": { bg: "#6B7280", text: "#ffffff" },
-  HTML: { bg: "#E34F26", text: "#ffffff" },
-  CSS: { bg: "#1572B6", text: "#ffffff" },
-  JavaScript: { bg: "#F7DF1E", text: "#000000" },
   React: { bg: "#61DAFB", text: "#000000" },
   Vitest: { bg: "#FCC72B", text: "#000000" },
   "Next.js": { bg: "#171717", text: "#ffffff" },
@@ -32,6 +29,7 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   "Laravel 12": { bg: "#FF2D20", text: "#ffffff" },
   PHP: { bg: "#777BB4", text: "#ffffff" },
   "Inertia.js": { bg: "#9157EA", text: "white" },
+  Vue: { bg: "#4FC08D", text: "white" },
 };
 
 const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
@@ -60,7 +58,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Planning to Learn",
-    items: ["tRPC", "GraphQL", "React Native", "Expo", "Python", "Terraform"],
+    items: ["Vue", "tRPC", "GraphQL", "React Native", "Expo", "Python", "Terraform"],
   },
 ];
 
@@ -85,7 +83,7 @@ const Skills: React.FC = memo(() => {
             className="flex flex-wrap gap-1.5 sm:gap-2"
             role="list">
             {category.items.map((item) => {
-              const colors = skillColors[item] || defaultSkillColor;
+              const colors = skillColors[item] ?? defaultSkillColor;
               return (
                 <Badge
                   key={item}
