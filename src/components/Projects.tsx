@@ -41,27 +41,14 @@ const plannedProjectsData: PlannedProject[] = [
     statusAriaLabel: "In Progress",
     name: (
       <a
-        href="https://github.com/andreirabon/api-hono"
+        href="https://github.com/andreirabon/lfap"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline text-blue-600 dark:text-blue-400">
-        Wedding Planner
+        Leave Filing and Approval Process
       </a>
     ),
-    description: (
-      <>
-        A web application for planning weddings, including invitations and details.
-        {/* (
-        <a
-          href="https://github.com/andreirabon/api-hono"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline text-blue-600 dark:text-blue-400">
-          GitHub
-        </a>
-        ) */}
-      </>
-    ),
+    description: "A comprehensive web application for managing leave requests.",
   },
 ];
 

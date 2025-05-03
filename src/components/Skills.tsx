@@ -29,6 +29,9 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   tRPC: { bg: "#2C3E50", text: "white" },
   Python: { bg: "#306998", text: "#ffffff" },
   Terraform: { bg: "#623CE4", text: "#ffffff" },
+  "Laravel 12": { bg: "#FF2D20", text: "#ffffff" },
+  PHP: { bg: "#777BB4", text: "#ffffff" },
+  "Inertia.js": { bg: "#9157EA", text: "white" },
 };
 
 const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
@@ -36,11 +39,24 @@ const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
 const skillCategories: SkillCategory[] = [
   {
     title: "Current Skills",
-    items: ["TypeScript", "Tailwind CSS", "REST API", "HTML", "CSS", "JavaScript", "Microsoft Playwright"],
+    items: [
+      "PHP",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "REST API",
+      "Zod",
+      "Jotai",
+      "Vitest",
+      "TanStack Query",
+      "Better Auth",
+      "Drizzle ORM",
+      "Microsoft Playwright",
+    ],
   },
   {
     title: "Currently Learning",
-    items: ["React", "Next.js", "Vitest", "Zod", "TanStack Query", "Jotai", "Better Auth", "Drizzle ORM"],
+    items: ["Next.js", "Laravel 12", "Inertia.js"],
   },
   {
     title: "Planning to Learn",

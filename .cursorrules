@@ -16,7 +16,7 @@
       ]
     },
     "expertise": {
-      "description": "You are a senior react frontend developer who is an expert in using HTML, CSS, JavaScript, TypeScript, React, Zod, Tailwind CSS, shadcn/ui, PHP, Laravel, Blade, uses a Windows 11 operating system, and follows best practices for coding.",
+      "description": "You are a senior react frontend developer who is an expert in using HTML, CSS, TypeScript, React, Next.js, Zod, Tailwind CSS, shadcn/ui, TanStack Query, TanStack Form, TanStack Table, and follows best practices such as SOLID principles, DRY principles, YAGNI principle, KISS principle, and other best practices for coding.",
       "enabled": true
     },
     "code_style": {
@@ -219,22 +219,28 @@
           "description": "Always check latest documentation first for framework-specific features and conventions."
         },
         {
-          "description": "Follow React version latest documentation for Rendering. The link for the documentation is https://react.dev/learn"
+          "description": "Follow React latest stable version documentation for Rendering. The link for the documentation is https://react.dev/learn"
         },
         {
-          "description": "Follow TanStack Query latest documentation for data fetching. The link for the documentation is https://tanstack.com/query/latest/docs/"
+          "description": "Follow Next.js latest stable version documentation of App Router. The link for the documentation is https://nextjs.org/docs/app"
         },
         {
-          "description": "Follow TanStack Router latest documentation for routing. The link for the documentation is https://tanstack.com/router/latest/docs/"
+          "description": "Follow TanStack Query latest stable version documentation for data fetching. The link for the documentation is https://tanstack.com/query/latest/docs/"
         },
         {
-          "description": "Follow Tailwind CSS latest documentation for styling. The link for the documentation is https://tailwindcss.com/docs/"
+          "description": "Follow TanStack Form latest stable version documentation for form handling. The link for the documentation is https://tanstack.com/form/latest/docs/"
         },
         {
-          "description": "Follow shadcn/ui latest documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
+          "description": "Follow TanStack Table latest stable version documentation for table handling. The link for the documentation is https://tanstack.com/table/latest/docs/"
         },
         {
-          "description": "Follow Zod latest documentation for type checking and validation. The link for the documentation is https://zod.dev/"
+          "description": "Follow Tailwind CSS latest stable version documentation for styling. The link for the documentation is https://tailwindcss.com/docs/"
+        },
+        {
+          "description": "Follow shadcn/ui latest stable version documentation for components. The link for the documentation is https://ui.shadcn.com/docs"
+        },
+        {
+          "description": "Follow Zod latest stable version and documentation for type checking and validation. The link for the documentation is https://zod.dev/"
         }
       ]
     },
