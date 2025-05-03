@@ -17,7 +17,6 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   "TanStack Query": { bg: "#ef4841", text: "#000000" },
   Jotai: { bg: "white", text: "#000000" },
   "Better Auth": { bg: "white", text: "#000000" },
-  GraphQL: { bg: "#E535AB", text: "#ffffff" },
   "React Native": { bg: "#61DAFB", text: "#000000" },
   Expo: { bg: "#0A192F", text: "#ffffff" },
   "Microsoft Playwright": { bg: "#45BA4B", text: "#ffffff" },
@@ -25,7 +24,6 @@ const skillColors: Record<string, { bg: string; text: string }> = {
   "Drizzle ORM": { bg: "#C5F74F", text: "#000000" },
   tRPC: { bg: "#2C3E50", text: "white" },
   Python: { bg: "#306998", text: "#ffffff" },
-  Terraform: { bg: "#623CE4", text: "#ffffff" },
   "Laravel 12": { bg: "#FF2D20", text: "#ffffff" },
   PHP: { bg: "#777BB4", text: "#ffffff" },
   "Inertia.js": { bg: "#9157EA", text: "white" },
@@ -54,11 +52,11 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Currently Learning",
-    items: ["Next.js", "Laravel 12", "Inertia.js"],
+    items: ["Next.js", "Laravel 12", "Inertia.js", "tRPC"],
   },
   {
     title: "Planning to Learn",
-    items: ["Vue", "tRPC", "GraphQL", "React Native", "Expo", "Python", "Terraform"],
+    items: ["Vue", "Expo", "Python"],
   },
 ];
 
