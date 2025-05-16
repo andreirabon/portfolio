@@ -8,26 +8,21 @@ interface SkillCategory {
 
 const skillColors: Record<string, { bg: string; text: string }> = {
   TypeScript: { bg: "#3178C6", text: "#ffffff" },
-  "Tailwind CSS": { bg: "#38BDF8", text: "#ffffff" },
-  "REST API": { bg: "#6B7280", text: "#ffffff" },
+  "Tailwind CSS": { bg: "#38B2AC", text: "#ffffff" },
   React: { bg: "#61DAFB", text: "#000000" },
   Vitest: { bg: "#FCC72B", text: "#000000" },
-  "Next.js": { bg: "#171717", text: "#ffffff" },
-  "TanStack Start": { bg: "#06B6D4", text: "#000000" },
-  "TanStack Query": { bg: "#ef4841", text: "#000000" },
+  "TanStack Query": { bg: "#EF4841", text: "#ffffff" },
   Jotai: { bg: "white", text: "#000000" },
   "Better Auth": { bg: "white", text: "#000000" },
-  "React Native": { bg: "#61DAFB", text: "#000000" },
-  Expo: { bg: "#0A192F", text: "#ffffff" },
-  "Microsoft Playwright": { bg: "#45BA4B", text: "#ffffff" },
+  Expo: { bg: "#1C1E24", text: "#ffffff" },
+  Playwright: { bg: "#45BA4B", text: "#ffffff" },
   Zod: { bg: "#142641", text: "#ffffff" },
   "Drizzle ORM": { bg: "#C5F74F", text: "#000000" },
-  tRPC: { bg: "#2C3E50", text: "white" },
-  Python: { bg: "#306998", text: "#ffffff" },
-  "Laravel 12": { bg: "#FF2D20", text: "#ffffff" },
+  Python: { bg: "#3670A0", text: "#ffffff" },
+  Laravel: { bg: "#FF2D20", text: "#ffffff" },
   PHP: { bg: "#777BB4", text: "#ffffff" },
   "Inertia.js": { bg: "#9157EA", text: "white" },
-  Vue: { bg: "#4FC08D", text: "white" },
+  "Vue.js": { bg: "#4FC08D", text: "white" },
 };
 
 const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
@@ -35,28 +30,15 @@ const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
 const skillCategories: SkillCategory[] = [
   {
     title: "Current Skills",
-    items: [
-      "PHP",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "REST API",
-      "Zod",
-      "Jotai",
-      "Vitest",
-      "TanStack Query",
-      "Better Auth",
-      "Drizzle ORM",
-      "Microsoft Playwright",
-    ],
+    items: ["PHP", "React", "TypeScript", "Tailwind CSS", "Vitest", "Playwright"],
   },
   {
     title: "Currently Learning",
-    items: ["Next.js", "Laravel 12", "Inertia.js", "tRPC"],
+    items: ["Vue.js", "Inertia.js", "Laravel", "Python"],
   },
   {
     title: "Planning to Learn",
-    items: ["Vue", "Expo", "Python"],
+    items: ["Expo", "Zod", "Jotai", "TanStack Query", "Better Auth", "Drizzle ORM"],
   },
 ];
 
