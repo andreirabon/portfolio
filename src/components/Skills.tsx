@@ -30,16 +30,16 @@ const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
 const skillCategories: SkillCategory[] = [
   {
     title: "Current Skills",
-    items: ["PHP", "React", "TypeScript", "Tailwind CSS", "Vitest", "Playwright"],
+    items: ["PHP", "Laravel", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Currently Learning",
-    items: ["Vue.js", "Inertia.js", "Laravel", "Python"],
+    items: ["Vue.js", "Inertia.js", "Python"],
   },
-  {
-    title: "Planning to Learn",
-    items: ["Expo", "Zod", "Jotai", "TanStack Query", "Better Auth", "Drizzle ORM"],
-  },
+  // {
+  //   title: "Planning to Learn",
+  //   items: ["Expo", "Zod", "Jotai", "TanStack Query", "Better Auth", "Drizzle ORM"],
+  // },
 ];
 
 const Skills: React.FC = memo(() => {
