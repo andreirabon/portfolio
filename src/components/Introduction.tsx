@@ -1,8 +1,8 @@
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { CgNotes } from "react-icons/cg";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiInformation2Line } from "react-icons/ri";
+import { Alert, AlertDescription } from "./ui/alert";
 function Introduction() {
   return (
     <>
@@ -19,7 +19,7 @@ function Introduction() {
             </p>
             <Alert>
               <RiInformation2Line className="h-4 w-4" />
-              <AlertDescription>Seeking opportunities for a Junior Full Stack Developer position.</AlertDescription>
+              <AlertDescription>Specializing in Vue, Inertia, and Laravel</AlertDescription>
             </Alert>
           </div>
 

@@ -40,8 +40,8 @@ const education: EduTimelineEntry[] = [
 const work: WorkTimelineEntry[] = [
   {
     logo: "aka.jpg",
-    startDate: "2022",
-    endDate: "Present",
+    startDate: "January 2022",
+    endDate: "May 2025",
     employer: "AKA Software Inc.",
     role: "Quality Assurance Tester",
   },

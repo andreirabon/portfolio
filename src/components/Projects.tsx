@@ -41,14 +41,14 @@ const plannedProjectsData: PlannedProject[] = [
     statusAriaLabel: "In Progress",
     name: (
       <a
-        href="https://github.com/andreirabon/lfap"
+        href=""
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline text-blue-600 dark:text-blue-400">
-        Leave Filing and Approval Process
+        Expense Tracker
       </a>
     ),
-    description: "A comprehensive web application for managing leave requests.",
+    description: "A comprehensive expense tracker application.",
   },
 ];
 
