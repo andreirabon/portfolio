@@ -3,6 +3,26 @@ import { CgNotes } from "react-icons/cg";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiInformation2Line } from "react-icons/ri";
 import { Alert, AlertDescription } from "./ui/alert";
+
+const skillColors: Record<string, { bg: string; text: string }> = {
+  TypeScript: { bg: "#3178C6", text: "#ffffff" },
+  "Tailwind CSS": { bg: "#38B2AC", text: "#ffffff" },
+  React: { bg: "#61DAFB", text: "#000000" },
+  Vitest: { bg: "#FCC72B", text: "#000000" },
+  "TanStack Query": { bg: "#EF4841", text: "#ffffff" },
+  Jotai: { bg: "white", text: "#000000" },
+  "Better Auth": { bg: "white", text: "#000000" },
+  Expo: { bg: "#1C1E24", text: "#ffffff" },
+  Playwright: { bg: "#45BA4B", text: "#ffffff" },
+  Zod: { bg: "#142641", text: "#ffffff" },
+  "Drizzle ORM": { bg: "#C5F74F", text: "#000000" },
+  Python: { bg: "#3670A0", text: "#ffffff" },
+  Laravel: { bg: "#FF2D20", text: "#ffffff" },
+  PHP: { bg: "#777BB4", text: "#ffffff" },
+  "Inertia.js": { bg: "#9157EA", text: "white" },
+  "Vue.js": { bg: "#4FC08D", text: "white" },
+};
+
 function Introduction() {
   return (
     <>
@@ -19,7 +39,35 @@ function Introduction() {
             </p>
             <Alert>
               <RiInformation2Line className="h-4 w-4" />
-              <AlertDescription>Specializing in Vue, Inertia, and Laravel</AlertDescription>
+              <AlertDescription className="flex items-center gap-2 flex-wrap">
+                <span>Specializing in</span>
+                <span
+                  style={{
+                    backgroundColor: skillColors["Vue.js"].bg,
+                    color: skillColors["Vue.js"].text,
+                  }}
+                  className="px-2 py-1 rounded text-xs font-medium">
+                  Vue
+                </span>
+                <span>,</span>
+                <span
+                  style={{
+                    backgroundColor: skillColors["Inertia.js"].bg,
+                    color: skillColors["Inertia.js"].text,
+                  }}
+                  className="px-2 py-1 rounded text-xs font-medium">
+                  Inertia
+                </span>
+                <span>, and</span>
+                <span
+                  style={{
+                    backgroundColor: skillColors["Laravel"].bg,
+                    color: skillColors["Laravel"].text,
+                  }}
+                  className="px-2 py-1 rounded text-xs font-medium">
+                  Laravel
+                </span>
+              </AlertDescription>
             </Alert>
           </div>
 

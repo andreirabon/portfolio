@@ -1,25 +1,12 @@
+import { ErrorBoundary, ProjectErrorFallback } from "@/components/ErrorBoundary";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useState } from "react";
-
-interface Project {
-  id: number;
-  picture: string;
-  pictureAlt: string;
-  title: string;
-  description: string;
-  link: string;
-  tools: string[];
-}
-
-interface PlannedProject {
-  id: number;
-  status: string;
-  statusAriaLabel: string;
-  name: React.ReactNode;
-  description: React.ReactNode;
-}
+import { useImageOptimization } from "@/hooks/useImageOptimization";
+import { usePerformance } from "@/hooks/usePerformance";
+import type { PlannedProject, Project, ProjectCardProps } from "@/lib/types";
+import React, { useCallback, useMemo } from "react";
 
 const projectsData: Project[] = [
   {
@@ -52,36 +39,73 @@ const plannedProjectsData: PlannedProject[] = [
   },
 ];
 
-interface ProjectCardProps {
-  project: Project;
-}
+// Optimized ProjectCard with React.memo and performance monitoring
+const ProjectCard = React.memo<ProjectCardProps>(({ project }) => {
+  const { markStart, markEnd } = usePerformance({
+    componentName: "ProjectCard",
+    threshold: 10,
+  });
 
-function ProjectCard({ project }: ProjectCardProps) {
-  const [isImageLoading, setIsImageLoading] = useState(true);
+  const { loaded, error, loading, imgProps, setupIntersectionObserver } = useImageOptimization({
+    src: project.picture,
+    onLoad: () => {
+      markEnd();
+    },
+    onError: (err) => {
+      console.error("Image failed to load:", err);
+      markEnd();
+    },
+  });
+
+  const handleImageRef = useCallback(
+    (element: HTMLImageElement | null) => {
+      if (element) {
+        setupIntersectionObserver(element);
+        markStart();
+      }
+    },
+    [setupIntersectionObserver, markStart],
+  );
+
+  const toolElements = useMemo(
+    () =>
+      project.tools.map((tool) => (
+        <span
+          key={tool}
+          className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full transition-colors hover:bg-primary hover:text-primary-foreground">
+          {tool}
+        </span>
+      )),
+    [project.tools],
+  );
+
+  if (error) {
+    return (
+      <Card className="overflow-hidden border-0 shadow-lg m-1 bg-card">
+        <CardContent className="p-6 text-center">
+          <div className="text-muted-foreground">Failed to load project image</div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group m-1 bg-card">
       <CardContent className="p-0">
         <div className="relative">
-          {isImageLoading && (
+          {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+              <Skeleton className="w-full h-72" />
             </div>
           )}
 
           <img
-            src={project.picture}
+            ref={handleImageRef}
+            {...imgProps}
             alt={project.pictureAlt}
             className={`w-full h-72 object-cover transition-all duration-500 ${
-              isImageLoading ? "opacity-0" : "opacity-100 brightness-90 group-hover:brightness-100"
+              loaded ? "brightness-90 group-hover:brightness-100" : ""
             }`}
-            loading="lazy"
-            onLoad={() => {
-              setIsImageLoading(false);
-            }}
-            onError={() => {
-              setIsImageLoading(false);
-            }}
           />
         </div>
         <div className="p-6 md:p-8 space-y-5">
@@ -96,107 +120,141 @@ function ProjectCard({ project }: ProjectCardProps) {
             </a>
           </div>
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{project.description}</p>
-          <div className="flex flex-wrap gap-2 pt-2">
-            {project.tools.map((tool) => (
-              <span
-                key={tool}
-                className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full transition-colors hover:bg-primary hover:text-primary-foreground">
-                {tool}
-              </span>
-            ))}
-          </div>
+          <div className="flex flex-wrap gap-2 pt-2">{toolElements}</div>
         </div>
       </CardContent>
     </Card>
   );
-}
+});
 
-function Projects() {
+ProjectCard.displayName = "ProjectCard";
+
+// Optimized PlannedProjectRow with React.memo
+const PlannedProjectRow = React.memo<{ project: PlannedProject }>(({ project }) => (
+  <TableRow className="hover:bg-muted/50 transition-colors">
+    <TableCell className="font-medium text-center">
+      <span
+        aria-label={project.statusAriaLabel}
+        className="inline-flex items-center justify-center w-6 h-6 text-xl"
+        role="img">
+        {project.status}
+      </span>
+    </TableCell>
+    <TableCell className="font-medium">{project.name}</TableCell>
+    <TableCell className="text-muted-foreground hidden md:table-cell">{project.description}</TableCell>
+  </TableRow>
+));
+
+PlannedProjectRow.displayName = "PlannedProjectRow";
+
+// Main Projects component with performance optimizations
+const Projects = React.memo(() => {
+  const { markStart, markEnd } = usePerformance({
+    componentName: "Projects",
+    threshold: 50,
+  });
+
+  // Memoize carousel options
+  const carouselOpts = useMemo(
+    () => ({
+      align: "start" as const,
+      loop: projectsData.length > 1,
+    }),
+    [],
+  );
+
+  // Memoize project cards
+  const projectCards = useMemo(
+    () =>
+      projectsData.map((project) => (
+        <CarouselItem
+          key={project.id}
+          className="pl-4 md:basis-1/1 lg:basis-1/1">
+          <ProjectCard project={project} />
+        </CarouselItem>
+      )),
+    [],
+  );
+
+  // Memoize planned project rows
+  const plannedProjectRows = useMemo(
+    () =>
+      plannedProjectsData.map((project) => (
+        <PlannedProjectRow
+          key={project.id}
+          project={project}
+        />
+      )),
+    [],
+  );
+
+  React.useEffect(() => {
+    markStart();
+    return () => {
+      markEnd();
+    };
+  }, [markStart, markEnd]);
+
   return (
     <div className="space-y-10 md:space-y-12">
-      <section aria-labelledby="projects-heading">
-        <div className="space-y-3 mb-5">
-          <h2
-            id="projects-heading"
-            className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
-            Featured Projects ({projectsData.length})
-          </h2>
-          <p className="text-muted-foreground">Showcase of completed work.</p>
-        </div>
-        {projectsData.length > 0 ? (
-          <Carousel
-            className="w-full max-w-5xl mx-auto"
-            opts={{
-              align: "start",
-              loop: projectsData.length > 1,
-            }}>
-            <CarouselContent className="-ml-4">
-              {" "}
-              {projectsData.map((project) => (
-                <CarouselItem
-                  key={project.id}
-                  className="pl-4 md:basis-1/1 lg:basis-1/1">
-                  {" "}
-                  <ProjectCard project={project} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {projectsData.length > 1 && (
-              <>
-                <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
-                <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
-              </>
-            )}
-          </Carousel>
-        ) : (
-          <p className="text-muted-foreground italic text-center">No featured projects to display yet.</p>
-        )}
-      </section>
-      <section aria-labelledby="planned-projects-heading">
-        <div className="space-y-3 mb-5">
-          <h2
-            id="planned-projects-heading"
-            className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
-            Projects
-          </h2>
-          <p className="text-muted-foreground">Currently in progress & not started.</p>
-        </div>
-        <Card className="overflow-hidden">
-          {" "}
-          <CardContent className="p-0">
-            {" "}
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-muted/50">
-                  <TableHead className="w-[80px] sm:w-[100px] font-semibold text-center">Status</TableHead>
-                  <TableHead className="font-semibold">Name</TableHead>
-                  <TableHead className="font-semibold hidden md:table-cell">Description</TableHead>{" "}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {plannedProjectsData.map((project) => (
-                  <TableRow
-                    key={project.id}
-                    className="hover:bg-muted/50 transition-colors">
-                    <TableCell className="font-medium text-center">
-                      <span
-                        aria-label={project.statusAriaLabel}
-                        className="inline-flex items-center justify-center w-6 h-6 text-xl"
-                        role="img">
-                        {project.status}
-                      </span>
-                    </TableCell>
-                    <TableCell className="font-medium">{project.name}</TableCell>
-                    <TableCell className="text-muted-foreground hidden md:table-cell">{project.description}</TableCell>
+      <ErrorBoundary fallback={ProjectErrorFallback}>
+        <section aria-labelledby="projects-heading">
+          <div className="space-y-3 mb-5">
+            <h2
+              id="projects-heading"
+              className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
+              Featured Projects ({projectsData.length})
+            </h2>
+            <p className="text-muted-foreground">Showcase of completed work.</p>
+          </div>
+          {projectsData.length > 0 ? (
+            <Carousel
+              className="w-full max-w-5xl mx-auto"
+              opts={carouselOpts}>
+              <CarouselContent className="-ml-4">{projectCards}</CarouselContent>
+              {projectsData.length > 1 && (
+                <>
+                  <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
+                  <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 border bg-background/80 hover:bg-background shadow-md" />
+                </>
+              )}
+            </Carousel>
+          ) : (
+            <p className="text-muted-foreground italic text-center">No featured projects to display yet.</p>
+          )}
+        </section>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <section aria-labelledby="planned-projects-heading">
+          <div className="space-y-3 mb-5">
+            <h2
+              id="planned-projects-heading"
+              className="inter text-2xl font-bold tracking-tight dark:text-gray-100">
+              Planned Projects ({plannedProjectsData.length})
+            </h2>
+            <p className="text-muted-foreground">Currently in progress & not started.</p>
+          </div>
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-muted/50">
+                    <TableHead className="w-[80px] sm:w-[100px] font-semibold text-center">Status</TableHead>
+                    <TableHead className="font-semibold">Name</TableHead>
+                    <TableHead className="font-semibold hidden md:table-cell">Description</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      </section>
+                </TableHeader>
+                <TableBody>{plannedProjectRows}</TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </section>
+      </ErrorBoundary>
     </div>
   );
-}
+});
+
+Projects.displayName = "Projects";
 
 export default Projects;

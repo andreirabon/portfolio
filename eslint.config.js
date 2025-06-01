@@ -10,7 +10,7 @@ export default tseslint.config(
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended, ...tseslint.configs.strictTypeChecked],
-    files: ["**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2022,
       globals: {
@@ -18,7 +18,7 @@ export default tseslint.config(
         React: "readonly",
       },
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.app.json",
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -31,13 +31,21 @@ export default tseslint.config(
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     },
   },
-  tseslint.configs.recommendedTypeChecked,
   {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["vite.config.ts"],
     languageOptions: {
+      globals: globals.node,
       parserOptions: {
-        projectService: true,
+        project: "./tsconfig.node.json",
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+  },
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 );
