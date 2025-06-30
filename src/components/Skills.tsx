@@ -1,86 +1,187 @@
 import { Badge } from "@/components/ui/badge";
-import { memo } from "react";
+import { SKILL_COLORS } from "@/lib/constants";
+import type { SkillBadgeProps, SkillCategory, SkillColorValue } from "@/lib/types";
+import { memo, useMemo } from "react";
 
-interface SkillCategory {
-  title: string;
-  items: string[];
-}
+// ==========================================
+// Skill Categories Data
+// ==========================================
 
-const skillColors: Record<string, { bg: string; text: string }> = {
-  TypeScript: { bg: "#3178C6", text: "#ffffff" },
-  "Tailwind CSS": { bg: "#38B2AC", text: "#ffffff" },
-  React: { bg: "#61DAFB", text: "#000000" },
-  Vitest: { bg: "#FCC72B", text: "#000000" },
-  "TanStack Query": { bg: "#EF4841", text: "#ffffff" },
-  Jotai: { bg: "white", text: "#000000" },
-  "Better Auth": { bg: "white", text: "#000000" },
-  Expo: { bg: "#1C1E24", text: "#ffffff" },
-  Playwright: { bg: "#45BA4B", text: "#ffffff" },
-  Zod: { bg: "#142641", text: "#ffffff" },
-  "Drizzle ORM": { bg: "#C5F74F", text: "#000000" },
-  Python: { bg: "#3670A0", text: "#ffffff" },
-  Laravel: { bg: "#FF2D20", text: "#ffffff" },
-  PHP: { bg: "#777BB4", text: "#ffffff" },
-  "Inertia.js": { bg: "#9157EA", text: "white" },
-  "Vue.js": { bg: "#4FC08D", text: "white" },
-};
-
-const defaultSkillColor = { bg: "#6B7280", text: "#ffffff" }; // e.g., gray
-
-const skillCategories: SkillCategory[] = [
+const SKILL_CATEGORIES = [
   {
     title: "Current Skills",
-    items: ["PHP", "Laravel", "TypeScript", "Tailwind CSS"],
+    items: ["PHP", "Laravel", "TypeScript", "Tailwind CSS", "Vue.js"],
   },
   {
     title: "Currently Learning",
-    items: ["Vue.js", "Inertia.js", "Python"],
+    items: ["React", "Python", "Node.js"],
   },
-  // {
-  //   title: "Planning to Learn",
-  //   items: ["Expo", "Zod", "Jotai", "TanStack Query", "Better Auth", "Drizzle ORM"],
-  // },
-];
+  {
+    title: "Planning to Learn",
+    items: ["Java", "C#", ".NET", "ASP.NET", "Go"],
+  },
+] as const satisfies readonly SkillCategory[];
 
-const Skills: React.FC = memo(() => {
+// ==========================================
+// Helper Functions
+// ==========================================
+
+/**
+ * Safely retrieves skill colors with fallback to default
+ * @param skill - The skill name to look up
+ * @returns SkillColorValue object with bg and text colors
+ */
+const getSkillColors = (skill: string): SkillColorValue => {
+  try {
+    const skillColorsMap = SKILL_COLORS as Record<string, SkillColorValue | undefined>;
+    const colors = skillColorsMap[skill];
+
+    if (
+      colors &&
+      typeof colors === "object" &&
+      "bg" in colors &&
+      "text" in colors &&
+      typeof colors.bg === "string" &&
+      typeof colors.text === "string"
+    ) {
+      return colors;
+    }
+
+    return { bg: "#6B7280", text: "#ffffff" };
+  } catch {
+    return { bg: "#6B7280", text: "#ffffff" };
+  }
+};
+
+/**
+ * Generates accessible category ID from title
+ * @param title - The category title
+ * @returns Kebab-case ID string
+ */
+const generateCategoryId = (title: string): string => title.toLowerCase().replace(/\s+/g, "-");
+
+// ==========================================
+// Skill Badge Component
+// ==========================================
+
+const SkillBadge = memo<SkillBadgeProps>(({ skill, colors }) => {
+  const badgeStyles = useMemo(
+    () => ({
+      backgroundColor: colors.bg,
+      color: colors.text,
+      borderColor: colors.bg,
+    }),
+    [colors.bg, colors.text],
+  );
+
+  const ariaLabel = `${skill} technology`;
+
+  return (
+    <Badge
+      variant="secondary"
+      style={badgeStyles}
+      className="text-xs font-medium transition-all duration-200 ease-out hover:scale-105 hover:shadow-sm hover:shadow-black/10 focus-visible:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-default select-none px-3 py-1.5 rounded-full dark:hover:shadow-white/10"
+      role="listitem"
+      aria-label={ariaLabel}>
+      {skill}
+    </Badge>
+  );
+});
+
+SkillBadge.displayName = "SkillBadge";
+
+// ==========================================
+// Skill Category Section Component
+// ==========================================
+
+interface SkillCategorySectionProps {
+  readonly category: SkillCategory;
+}
+
+const SkillCategorySection = memo<SkillCategorySectionProps>(({ category }) => {
+  const categoryId = useMemo(() => generateCategoryId(category.title), [category.title]);
+
+  const headingId = `${categoryId}-heading`;
+  const ariaLabel = `${category.title} technologies`;
+
+  const skillBadges = useMemo(
+    () =>
+      category.items.map((skill) => (
+        <SkillBadge
+          key={skill}
+          skill={skill}
+          colors={getSkillColors(skill)}
+        />
+      )),
+    [category.items],
+  );
+
+  return (
+    <section
+      className="space-y-4"
+      role="region"
+      aria-labelledby={headingId}>
+      <h3
+        id={headingId}
+        className="text-xl font-bold tracking-wide text-foreground sm:text-2xl">
+        {category.title}
+      </h3>
+
+      <div
+        className="flex flex-wrap gap-2 sm:gap-3"
+        role="list"
+        aria-label={ariaLabel}>
+        {skillBadges}
+      </div>
+    </section>
+  );
+});
+
+SkillCategorySection.displayName = "SkillCategorySection";
+
+// ==========================================
+// Main Skills Component
+// ==========================================
+
+interface SkillsProps {
+  readonly className?: string;
+  readonly categories?: readonly SkillCategory[];
+}
+
+const Skills = memo<SkillsProps>(({ className, categories = SKILL_CATEGORIES }) => {
+  const categorySections = useMemo(
+    () =>
+      categories.map((category) => (
+        <SkillCategorySection
+          key={category.title}
+          category={category}
+        />
+      )),
+    [categories],
+  );
+
+  const containerClassName = useMemo(() => {
+    const baseClasses = "space-y-8 px-4 sm:space-y-10 sm:px-0";
+    return className ? `${baseClasses} ${className}` : baseClasses;
+  }, [className]);
+
   return (
     <section
       id="skills"
-      className="space-y-6 sm:space-y-8 px-4 sm:px-0"
+      className={containerClassName}
       aria-label="Skills and Technologies">
-      {skillCategories.map((category) => (
-        <div
-          key={category.title}
-          className="space-y-3 sm:space-y-4"
-          role="region"
-          aria-labelledby={`${category.title.toLowerCase().replace(/\s+/g, "-")}-heading`}>
-          <h2
-            id={`${category.title.toLowerCase().replace(/\s+/g, "-")}-heading`}
-            className="inter text-xl sm:text-2xl font-bold tracking-wide dark:text-gray-100">
-            {category.title}
-          </h2>
-          <div
-            className="flex flex-wrap gap-1.5 sm:gap-2"
-            role="list">
-            {category.items.map((item) => {
-              const colors = skillColors[item] ?? defaultSkillColor;
-              return (
-                <Badge
-                  key={item}
-                  variant="secondary"
-                  style={{
-                    backgroundColor: colors.bg,
-                    color: colors.text,
-                  }}
-                  className="inter text-xs sm:text-sm px-2 sm:px-3 py-1 font-medium transition-transform duration-150 ease-in-out hover:scale-105" //
-                  role="listitem">
-                  {item}
-                </Badge>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+      <header>
+        <h2
+          id="current-skills-heading"
+          className="text-2xl font-bold tracking-wide text-foreground sm:text-3xl">
+          Skills & Technologies
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+          Technologies I work with and am currently exploring
+        </p>
+      </header>
+
+      <div className="space-y-8 sm:space-y-10">{categorySections}</div>
     </section>
   );
 });

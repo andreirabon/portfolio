@@ -31,7 +31,9 @@ export const usePerformance = ({
     const renderTime = endTime - startTimeRef.current;
 
     const metric: PerformanceMetrics = {
-      renderTime,
+      startTime: startTimeRef.current,
+      endTime,
+      duration: renderTime,
       componentName,
     };
 

@@ -1,0 +1,102 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.next/
+.vite/
+.turbo/
+
+# Cache directories
+.cache/
+.vscode-test/
+.eslintcache
+.stylelintcache
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Log files
+*.log
+logs/
+*.tlog
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Coverage reports
+coverage/
+.nyc_output/
+lcov.info
+
+# Package manager files
+yarn.lock
+package-lock.json
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Storybook build
+storybook-static/
+
+# Generated files
+*.generated.*
+*.gen.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation build
+docs/build/
+.docusaurus/
+
+# Backup files
+*.backup
+*.bak
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large media files (add specific extensions as needed)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Config files that contain sensitive information
+.env*
+config/local.json
+secrets.json

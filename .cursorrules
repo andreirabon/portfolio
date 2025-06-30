@@ -1,5 +1,26 @@
 {
   "rules": {
+    "ai_workflow": {
+      "description": "AI Assistant Workflow and Context Management",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Always analyze project structure and existing code before making suggestions"
+        },
+        {
+          "description": "Use @-symbols for linking external documentation when relevant"
+        },
+        {
+          "description": "Focus on incremental improvements rather than complete rewrites"
+        },
+        {
+          "description": "Provide context-aware suggestions based on existing codebase patterns"
+        },
+        {
+          "description": "Use AI Review for performance and accessibility checks"
+        }
+      ]
+    },
     "dependency_management": {
       "description": "Package and Dependency Management",
       "enabled": true,
@@ -12,81 +33,94 @@
             "Only suggest installation if the package is not already present",
             "If found, note the existing version for compatibility"
           ]
+        },
+        {
+          "description": "Use pnpm for package management with lockfile integrity"
+        },
+        {
+          "description": "Prefer peer dependencies for shared libraries"
+        },
+        {
+          "description": "Keep dependencies updated but test thoroughly"
         }
       ]
     },
     "expertise": {
-      "description": "You are a senior full stack developer who is an expert in React, TypeScript, Vite, Radix UI, Tailwind CSS, HTML, CSS, JavaScript, and follows best practices such as SOLID principles, DRY principles, YAGNI principle, KISS principle, and other modern web development best practices.",
+      "description": "You are a senior full stack developer who is an expert in React, TypeScript, Tailwind CS0, modern web APIs, and follows best practices such as SOLID principles, DRY principles, YAGNI principle, KISS principle, and other modern web development best practices.",
       "enabled": true
     },
-    "tech_stack": {
-      "description": "Technology Stack Guidelines",
-      "enabled": true,
-      "stack": {
-        "frontend_framework": "React 19",
-        "language": "TypeScript 5.7",
-        "build_tool": "Vite 6.1",
-        "ui_library": "Radix UI",
-        "styling": "Tailwind CSS 4.0",
-        "package_manager": "pnpm",
-        "testing": "Vitest (recommended for Vite projects)",
-        "linting": "ESLint 9 with TypeScript ESLint"
-      }
-    },
     "react_best_practices": {
-      "description": "React Best Practices and Patterns",
+      "description": "React 19 Best Practices and Modern Patterns",
       "enabled": true,
       "rules": [
         {
-          "description": "Use React 19 features and modern patterns"
+          "description": "Use React 19 features: use() hook, Actions, optimistic updates"
         },
         {
-          "description": "Prefer functional components with hooks over class components"
+          "description": "Leverage new React 19 compiler optimizations"
         },
         {
-          "description": "Use React.memo() for performance optimization when appropriate"
+          "description": "Use React.use() for async data fetching in components"
+        },
+        {
+          "description": "Implement Server Components where applicable"
+        },
+        {
+          "description": "Use React Actions for form submissions and mutations"
+        },
+        {
+          "description": "Prefer function components with hooks over class components"
+        },
+        {
+          "description": "Use React.memo() sparingly - let React 19 compiler handle optimization"
         },
         {
           "description": "Follow the Rules of Hooks - only call hooks at the top level"
         },
         {
-          "description": "Use useCallback for function memoization to prevent unnecessary re-renders"
+          "description": "Use useCallback only when necessary - React 19 compiler handles most cases"
         },
         {
-          "description": "Use useMemo for expensive calculations"
+          "description": "Use useMemo for expensive calculations, not simple values"
         },
         {
           "description": "Create custom hooks for reusable stateful logic"
         },
         {
-          "description": "Use React.Suspense for code splitting and lazy loading"
+          "description": "Use React.Suspense for code splitting, data fetching, and loading states"
         },
         {
-          "description": "Prefer composition over prop drilling - use context for deeply nested state"
+          "description": "Prefer composition over prop drilling - use context strategically"
         },
         {
-          "description": "Use React.forwardRef when creating reusable components that need ref access"
+          "description": "Use React.forwardRef with useImperativeHandle when needed"
+        },
+        {
+          "description": "Implement proper error boundaries with React 19 error handling"
         }
       ]
     },
     "typescript_best_practices": {
-      "description": "TypeScript Best Practices",
+      "description": "TypeScript 5.5+ Best Practices",
       "enabled": true,
       "rules": [
         {
-          "description": "Use strict TypeScript configuration with noImplicitAny and strictNullChecks"
+          "description": "Use strict TypeScript configuration with all strict flags enabled"
         },
         {
-          "description": "Prefer interfaces over types for object shapes and extend-ability"
+          "description": "Use const assertions and 'as const' for immutable data"
         },
         {
-          "description": "Use type-only imports and exports: import type { ... } from '...'"
+          "description": "Prefer interfaces over types for object shapes that might be extended"
         },
         {
-          "description": "Avoid using 'any' - use 'unknown' instead when type is truly unknown"
+          "description": "Use type-only imports: import type { ... } from '...'"
         },
         {
-          "description": "Use proper React component typing with React.FC or explicit prop interfaces"
+          "description": "Avoid 'any' - use 'unknown' or proper type narrowing instead"
+        },
+        {
+          "description": "Use proper React component typing: React.FC<Props> or Props interface"
         },
         {
           "description": "Define event handler types explicitly: React.ChangeEvent<HTMLInputElement>"
@@ -98,106 +132,54 @@
           "description": "Leverage TypeScript's satisfies operator for better type inference"
         },
         {
-          "description": "Use discriminated unions for component variants"
+          "description": "Use discriminated unions for component variants and state management"
         },
         {
-          "description": "Create proper type guards for runtime type checking"
-        }
-      ]
-    },
-    "vite_configuration": {
-      "description": "Vite Configuration and Best Practices",
-      "enabled": true,
-      "rules": [
-        {
-          "description": "Use defineConfig for TypeScript IntelliSense in vite.config.ts"
+          "description": "Create proper type guards with 'is' predicates"
         },
         {
-          "description": "Configure proper TypeScript settings in tsconfig.json for Vite"
+          "description": "Use template literal types for string unions"
         },
         {
-          "description": "Use Vite's environment variables with VITE_ prefix"
+          "description": "Implement proper generic constraints with extends"
         },
         {
-          "description": "Leverage Vite's fast HMR for development efficiency"
-        },
-        {
-          "description": "Configure proper build optimizations for production"
-        },
-        {
-          "description": "Use Vite plugins appropriately (@vitejs/plugin-react)"
-        },
-        {
-          "description": "Set up proper asset handling and public directory usage"
-        },
-        {
-          "description": "Configure proper source maps for debugging"
-        }
-      ]
-    },
-    "radix_ui_best_practices": {
-      "description": "Radix UI Component Library Best Practices",
-      "enabled": true,
-      "rules": [
-        {
-          "description": "Follow Radix UI's composition patterns with Root, Trigger, Content structure"
-        },
-        {
-          "description": "Use asChild prop for component composition when needed"
-        },
-        {
-          "description": "Implement proper accessibility attributes and ARIA patterns"
-        },
-        {
-          "description": "Use React.forwardRef for custom components that wrap Radix primitives"
-        },
-        {
-          "description": "Leverage Radix's built-in accessibility features"
-        },
-        {
-          "description": "Use controlled vs uncontrolled patterns appropriately"
-        },
-        {
-          "description": "Implement proper keyboard navigation support"
-        },
-        {
-          "description": "Use Radix's data attributes for styling states"
-        },
-        {
-          "description": "Follow Radix's styling patterns with CSS-in-JS or CSS modules"
-        },
-        {
-          "description": "Use Portal components for overlays and modals"
+          "description": "Use utility types: Partial, Required, Omit, Pick, etc."
         }
       ]
     },
     "code_organization": {
-      "description": "Code Organization and Structure",
+      "description": "Modern Code Organization and Structure",
       "enabled": true,
+      "structure": {
+        "src/": "All source code",
+        "src/components/": "React components with clear hierarchy",
+        "src/components/ui/": "Reusable UI components (Radix UI based)",
+        "src/lib/": "Utility functions, configurations, and constants",
+        "src/hooks/": "Custom React hooks",
+        "src/types/": "TypeScript type definitions",
+        "src/context/": "React context providers",
+        "src/utils/": "Pure utility functions",
+        "public/": "Static assets"
+      },
       "rules": [
         {
-          "description": "Use src/ directory for all source code"
+          "description": "Group related components in feature-based subdirectories"
         },
         {
-          "description": "Organize components in src/components/ with clear hierarchy"
+          "description": "Use index.ts files for clean barrel exports"
         },
         {
-          "description": "Create reusable UI components in src/components/ui/"
-        },
-        {
-          "description": "Use src/lib/ for utility functions and configurations"
-        },
-        {
-          "description": "Group related components in subdirectories"
-        },
-        {
-          "description": "Use index.ts files for clean imports"
-        },
-        {
-          "description": "Separate concerns: components, hooks, utils, types"
+          "description": "Separate concerns: components, hooks, utils, types, contexts"
         },
         {
           "description": "Use absolute imports with path mapping in tsconfig.json"
+        },
+        {
+          "description": "Co-locate tests with source files using .test.tsx extension"
+        },
+        {
+          "description": "Keep component files focused - extract logic to custom hooks"
         }
       ]
     },
@@ -206,7 +188,7 @@
       "enabled": true,
       "rules": [
         {
-          "description": "Use PascalCase for React components (e.g., UserProfile.tsx)"
+          "description": "Use PascalCase for React components and TypeScript interfaces"
         },
         {
           "description": "Use camelCase for variables, functions, and props"
@@ -218,67 +200,85 @@
           "description": "Use UPPER_SNAKE_CASE for constants and environment variables"
         },
         {
-          "description": "Use descriptive names for custom hooks (e.g., useLocalStorage, useApi)"
+          "description": "Use descriptive names for custom hooks (useLocalStorage, useApi)"
         },
         {
           "description": "Prefix custom hooks with 'use'"
         },
         {
-          "description": "Use 'I' prefix for interfaces (optional but consistent)"
+          "description": "Use 'I' prefix for interfaces when extending (optional but consistent)"
         },
         {
           "description": "Use descriptive boolean names (isLoading, hasError, canSubmit)"
+        },
+        {
+          "description": "Use action names for functions (handleClick, fetchData, validateForm)"
         }
       ]
     },
     "styling_guidelines": {
-      "description": "Styling with Tailwind CSS",
+      "description": "Tailwind CSS 4.0 Modern Styling",
       "enabled": true,
       "rules": [
         {
-          "description": "Use Tailwind CSS 4.0 utility classes for styling"
+          "description": "Use Tailwind CSS 4.0 utility classes and new CSS features"
         },
         {
           "description": "Follow mobile-first responsive design approach"
         },
         {
-          "description": "Use Tailwind's design tokens for consistency"
+          "description": "Use Tailwind's design tokens and CSS variables for theming"
         },
         {
-          "description": "Leverage Tailwind's CSS variables for dynamic theming"
+          "description": "Leverage CSS @property for dynamic animations"
         },
         {
           "description": "Use class-variance-authority (cva) for component variants"
         },
         {
-          "description": "Use tailwind-merge for conditional class application"
+          "description": "Use tailwind-merge (cn utility) for conditional class application"
         },
         {
-          "description": "Create reusable style compositions with @apply when needed"
+          "description": "Create reusable style compositions with @apply sparingly"
         },
         {
           "description": "Use Tailwind's container queries and modern CSS features"
+        },
+        {
+          "description": "Implement dark mode with Tailwind's dark: modifier"
+        },
+        {
+          "description": "Use Tailwind's aspect-ratio utilities for responsive media"
         }
       ]
     },
     "performance_optimization": {
-      "description": "Performance Optimization",
+      "description": "Performance Optimization Guidelines",
       "enabled": true,
       "rules": [
         {
-          "description": "Use React.lazy and Suspense for code splitting"
+          "description": "Use React.lazy and Suspense for route-based code splitting"
         },
         {
-          "description": "Implement proper memoization with React.memo, useCallback, useMemo"
+          "description": "Let React 19 compiler handle most memoization automatically"
         },
         {
-          "description": "Optimize bundle size with tree shaking"
+          "description": "Use React.startTransition for non-urgent updates"
         },
         {
-          "description": "Use Vite's built-in optimizations"
+          "description": "Implement proper image optimization with modern formats"
         },
         {
-          "description": "Implement proper image optimization"
+          "description": "Use Web Workers for heavy computations"
+        },
+        {
+          "description": "Optimize bundle size with tree shaking and dynamic imports"
+        },
+        {
+          "description": "Use Vite's built-in optimizations and plugins"
+        },
+        {
+          "description": "Implement proper loading states and skeleton UI"
         },
         {
           "description": "Use proper dependency arrays in useEffect"
@@ -288,27 +288,30 @@
         },
         {
           "description": "Use React DevTools Profiler for performance analysis"
+        },
+        {
+          "description": "Implement service workers for caching strategies"
         }
       ]
     },
     "accessibility": {
-      "description": "Accessibility (A11y) Guidelines",
+      "description": "Web Accessibility (WCAG 2.2) Guidelines",
       "enabled": true,
       "rules": [
         {
           "description": "Leverage Radix UI's built-in accessibility features"
         },
         {
-          "description": "Use semantic HTML elements"
+          "description": "Use semantic HTML elements with proper heading hierarchy"
         },
         {
-          "description": "Implement proper ARIA attributes and roles"
+          "description": "Implement proper ARIA attributes, roles, and landmarks"
         },
         {
-          "description": "Ensure proper color contrast ratios"
+          "description": "Ensure minimum color contrast ratios (4.5:1 normal, 3:1 large text)"
         },
         {
-          "description": "Implement keyboard navigation support"
+          "description": "Implement full keyboard navigation support"
         },
         {
           "description": "Use screen reader friendly text and labels"
@@ -317,7 +320,19 @@
           "description": "Test with screen readers and keyboard-only navigation"
         },
         {
-          "description": "Use focus indicators and proper focus management"
+          "description": "Use proper focus indicators and focus management"
+        },
+        {
+          "description": "Implement skip links for main content"
+        },
+        {
+          "description": "Ensure images have meaningful alt text"
+        },
+        {
+          "description": "Use aria-live regions for dynamic content announcements"
+        },
+        {
+          "description": "Test with axe-core and lighthouse accessibility audits"
         }
       ]
     },
@@ -329,27 +344,33 @@
           "description": "Use React Error Boundaries for component error handling"
         },
         {
-          "description": "Implement proper form validation with TypeScript"
+          "description": "Implement proper form validation with React Hook Form + Zod"
         },
         {
-          "description": "Use try-catch blocks for async operations"
+          "description": "Use try-catch blocks with proper error logging"
         },
         {
           "description": "Provide meaningful error messages to users"
         },
         {
-          "description": "Log errors appropriately for debugging"
+          "description": "Log errors with proper context for debugging"
         },
         {
-          "description": "Use TypeScript's strict null checks"
+          "description": "Use TypeScript's strict null checks and optional chaining"
         },
         {
-          "description": "Handle loading and error states in UI"
+          "description": "Handle loading, error, and success states in UI"
+        },
+        {
+          "description": "Implement retry mechanisms for failed operations"
+        },
+        {
+          "description": "Use React 19 error boundaries with recovery mechanisms"
         }
       ]
     },
     "testing_guidelines": {
-      "description": "Testing Best Practices",
+      "description": "Modern Testing Best Practices",
       "enabled": true,
       "rules": [
         {
@@ -365,31 +386,43 @@
           "description": "Test accessibility with @testing-library/jest-dom"
         },
         {
-          "description": "Mock external dependencies appropriately"
+          "description": "Mock external dependencies and APIs appropriately"
         },
         {
-          "description": "Use proper test organization and naming"
+          "description": "Use proper test organization with describe/it/test blocks"
         },
         {
-          "description": "Achieve meaningful test coverage"
+          "description": "Achieve meaningful test coverage, focus on critical paths"
+        },
+        {
+          "description": "Use MSW (Mock Service Worker) for API mocking"
+        },
+        {
+          "description": "Test error states and edge cases"
+        },
+        {
+          "description": "Use snapshot testing sparingly, only for stable UI"
         }
       ]
     },
     "development_workflow": {
-      "description": "Development Workflow",
+      "description": "Development Workflow and Tooling",
       "enabled": true,
       "rules": [
         {
-          "description": "Use pnpm for package management"
+          "description": "Use pnpm for faster package management"
         },
         {
-          "description": "Follow conventional commits for version control"
+          "description": "Follow conventional commits for clear version control"
         },
         {
-          "description": "Use ESLint and Prettier for code formatting"
+          "description": "Use ESLint 9+ flat config with TypeScript rules"
         },
         {
-          "description": "Set up proper TypeScript configuration"
+          "description": "Use Prettier for consistent code formatting"
+        },
+        {
+          "description": "Set up proper TypeScript configuration with strict mode"
         },
         {
           "description": "Use Vite's development server for fast iteration"
@@ -398,7 +431,478 @@
           "description": "Implement proper environment variable management"
         },
         {
-          "description": "Use proper Git branching strategies"
+          "description": "Use proper Git branching strategies (feature branches)"
+        },
+        {
+          "description": "Set up pre-commit hooks with lint-staged"
+        },
+        {
+          "description": "Use .cursorignore to exclude build artifacts and node_modules"
+        }
+      ]
+    },
+    "security": {
+      "description": "Security Best Practices",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Sanitize user inputs and prevent XSS attacks"
+        },
+        {
+          "description": "Use Content Security Policy (CSP) headers"
+        },
+        {
+          "description": "Keep dependencies updated with security patches"
+        },
+        {
+          "description": "Use environment variables for sensitive configuration"
+        },
+        {
+          "description": "Implement proper authentication and authorization"
+        },
+        {
+          "description": "Use HTTPS in production environments"
+        },
+        {
+          "description": "Validate and sanitize API inputs"
+        }
+      ]
+    },
+    "seo_meta_management": {
+      "description": "SEO and Meta Data Management",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Implement proper HTML meta tags (title, description, keywords)"
+        },
+        {
+          "description": "Use structured data (JSON-LD) for rich snippets"
+        },
+        {
+          "description": "Implement Open Graph tags for social media sharing"
+        },
+        {
+          "description": "Add Twitter Card meta tags"
+        },
+        {
+          "description": "Use canonical URLs to prevent duplicate content"
+        },
+        {
+          "description": "Implement proper heading hierarchy (h1, h2, h3, etc.)"
+        },
+        {
+          "description": "Optimize images with alt text and proper dimensions"
+        },
+        {
+          "description": "Create XML sitemap and robots.txt"
+        },
+        {
+          "description": "Use React Helmet or similar for dynamic meta management"
+        },
+        {
+          "description": "Implement proper URL structure and clean URLs"
+        }
+      ]
+    },
+    "state_management": {
+      "description": "State Management Patterns",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use React 19 built-in state management first (useState, useReducer)"
+        },
+        {
+          "description": "Implement Context API for shared state across components"
+        },
+        {
+          "description": "Use Zustand for complex client-side state management"
+        },
+        {
+          "description": "Implement proper state normalization for complex data"
+        },
+        {
+          "description": "Use React Query/TanStack Query for server state management"
+        },
+        {
+          "description": "Separate client state from server state clearly"
+        },
+        {
+          "description": "Implement optimistic updates for better UX"
+        },
+        {
+          "description": "Use proper state colocation - keep state close to where it's used"
+        },
+        {
+          "description": "Avoid prop drilling with composition patterns"
+        },
+        {
+          "description": "Implement proper loading and error states for async operations"
+        }
+      ]
+    },
+    "form_handling": {
+      "description": "Form Handling Best Practices",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use React Hook Form for performant form management"
+        },
+        {
+          "description": "Implement Zod for runtime schema validation"
+        },
+        {
+          "description": "Create reusable form components with proper TypeScript typing"
+        },
+        {
+          "description": "Implement proper form validation with clear error messages"
+        },
+        {
+          "description": "Use proper ARIA attributes for form accessibility"
+        },
+        {
+          "description": "Implement form state persistence where appropriate"
+        },
+        {
+          "description": "Handle form submission with proper loading states"
+        },
+        {
+          "description": "Implement proper form reset and dirty state management"
+        },
+        {
+          "description": "Use controlled components for complex form interactions"
+        },
+        {
+          "description": "Implement proper form field focus management"
+        }
+      ]
+    },
+    "progressive_web_app": {
+      "description": "Progressive Web App (PWA) Guidelines",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Implement proper web app manifest with icons and metadata"
+        },
+        {
+          "description": "Use service workers for offline functionality and caching"
+        },
+        {
+          "description": "Implement proper app shell architecture"
+        },
+        {
+          "description": "Ensure proper viewport and responsive design"
+        },
+        {
+          "description": "Implement install prompts and app-like experience"
+        },
+        {
+          "description": "Use proper caching strategies (cache-first, network-first, etc.)"
+        },
+        {
+          "description": "Implement background sync for offline actions"
+        },
+        {
+          "description": "Add proper app icons for all platforms and sizes"
+        },
+        {
+          "description": "Implement push notifications where appropriate"
+        },
+        {
+          "description": "Test PWA functionality with Lighthouse audits"
+        }
+      ]
+    },
+    "design_system": {
+      "description": "Design System and Component Library",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Create consistent design tokens (colors, spacing, typography)"
+        },
+        {
+          "description": "Build reusable component library with Radix UI primitives"
+        },
+        {
+          "description": "Implement proper component variants with class-variance-authority"
+        },
+        {
+          "description": "Create comprehensive component documentation"
+        },
+        {
+          "description": "Use Storybook for component development and testing"
+        },
+        {
+          "description": "Implement proper theming system with CSS custom properties"
+        },
+        {
+          "description": "Create consistent animation and transition patterns"
+        },
+        {
+          "description": "Implement proper spacing and layout systems"
+        },
+        {
+          "description": "Use proper color palettes with accessibility considerations"
+        },
+        {
+          "description": "Create modular and composable component architecture"
+        }
+      ]
+    },
+    "bundle_optimization": {
+      "description": "Bundle Analysis and Optimization",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use Vite Bundle Analyzer to monitor bundle size"
+        },
+        {
+          "description": "Implement proper code splitting strategies"
+        },
+        {
+          "description": "Use dynamic imports for route-based code splitting"
+        },
+        {
+          "description": "Optimize third-party library imports (tree shaking)"
+        },
+        {
+          "description": "Implement proper asset optimization (images, fonts, etc.)"
+        },
+        {
+          "description": "Use proper compression and minification"
+        },
+        {
+          "description": "Monitor and optimize Core Web Vitals"
+        },
+        {
+          "description": "Implement proper resource hints (preload, prefetch, preconnect)"
+        },
+        {
+          "description": "Use modern JavaScript features with proper polyfills"
+        },
+        {
+          "description": "Optimize critical rendering path"
+        }
+      ]
+    },
+    "code_review": {
+      "description": "Code Review and Quality Assurance",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use pull request templates with proper checklists"
+        },
+        {
+          "description": "Implement automated code quality checks (ESLint, Prettier, TypeScript)"
+        },
+        {
+          "description": "Use conventional commits for clear change tracking"
+        },
+        {
+          "description": "Implement proper branch protection rules"
+        },
+        {
+          "description": "Use semantic versioning for releases"
+        },
+        {
+          "description": "Implement automated testing in CI/CD pipeline"
+        },
+        {
+          "description": "Use code coverage reporting and maintain thresholds"
+        },
+        {
+          "description": "Implement security scanning and dependency audits"
+        },
+        {
+          "description": "Use proper git hooks for pre-commit and pre-push checks"
+        },
+        {
+          "description": "Document code review guidelines and best practices"
+        }
+      ]
+    },
+    "monitoring_analytics": {
+      "description": "Monitoring and Analytics",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Implement error tracking with Sentry or similar"
+        },
+        {
+          "description": "Use performance monitoring tools (Web Vitals, Lighthouse CI)"
+        },
+        {
+          "description": "Implement proper logging with structured data"
+        },
+        {
+          "description": "Use analytics tools for user behavior tracking"
+        },
+        {
+          "description": "Implement proper GDPR compliance for data collection"
+        },
+        {
+          "description": "Monitor bundle size and performance regressions"
+        },
+        {
+          "description": "Use uptime monitoring for production applications"
+        },
+        {
+          "description": "Implement proper health checks and status endpoints"
+        },
+        {
+          "description": "Use real user monitoring (RUM) for performance insights"
+        },
+        {
+          "description": "Implement proper alerting for critical issues"
+        }
+      ]
+    },
+    "deployment_devops": {
+      "description": "Deployment and DevOps Best Practices",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use automated deployment pipelines (GitHub Actions, etc.)"
+        },
+        {
+          "description": "Implement proper environment management (dev, staging, prod)"
+        },
+        {
+          "description": "Use container deployment with Docker when appropriate"
+        },
+        {
+          "description": "Implement proper CI/CD with automated testing and quality gates"
+        },
+        {
+          "description": "Use infrastructure as code (IaC) for reproducible deployments"
+        },
+        {
+          "description": "Implement proper rollback strategies and blue-green deployments"
+        },
+        {
+          "description": "Use CDN for static asset delivery and global performance"
+        },
+        {
+          "description": "Implement proper backup and disaster recovery strategies"
+        },
+        {
+          "description": "Use proper secrets management and environment variables"
+        },
+        {
+          "description": "Monitor deployment success and automate failure recovery"
+        }
+      ]
+    },
+    "documentation": {
+      "description": "Documentation Standards",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Maintain comprehensive README with setup and usage instructions"
+        },
+        {
+          "description": "Document component APIs with TypeScript interfaces and JSDoc"
+        },
+        {
+          "description": "Create architectural decision records (ADRs) for major decisions"
+        },
+        {
+          "description": "Maintain changelog with semantic versioning"
+        },
+        {
+          "description": "Document deployment and environment setup procedures"
+        },
+        {
+          "description": "Create troubleshooting guides for common issues"
+        },
+        {
+          "description": "Document coding standards and style guides"
+        },
+        {
+          "description": "Maintain component library documentation with examples"
+        },
+        {
+          "description": "Use inline code comments for complex business logic"
+        },
+        {
+          "description": "Create user guides and feature documentation"
+        }
+      ]
+    },
+    "api_design": {
+      "description": "API Design and Integration Patterns",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use RESTful design principles with proper HTTP methods"
+        },
+        {
+          "description": "Implement consistent API response formats with proper status codes"
+        },
+        {
+          "description": "Use proper API versioning strategies"
+        },
+        {
+          "description": "Implement comprehensive error handling with meaningful error messages"
+        },
+        {
+          "description": "Use proper authentication and authorization patterns (JWT, OAuth)"
+        },
+        {
+          "description": "Implement API rate limiting and throttling"
+        },
+        {
+          "description": "Use proper data validation and sanitization"
+        },
+        {
+          "description": "Implement proper API documentation with OpenAPI/Swagger"
+        },
+        {
+          "description": "Use TypeScript for API client and server type safety"
+        },
+        {
+          "description": "Implement proper caching strategies for API responses"
+        },
+        {
+          "description": "Use proper pagination for large data sets"
+        },
+        {
+          "description": "Implement proper API testing with integration and contract tests"
+        }
+      ]
+    },
+    "internationalization": {
+      "description": "Internationalization (i18n) Best Practices",
+      "enabled": true,
+      "rules": [
+        {
+          "description": "Use react-i18next for internationalization implementation"
+        },
+        {
+          "description": "Implement proper locale detection and switching"
+        },
+        {
+          "description": "Create translation key structure with proper namespacing"
+        },
+        {
+          "description": "Use proper pluralization and number formatting"
+        },
+        {
+          "description": "Implement date and time localization"
+        },
+        {
+          "description": "Handle RTL (right-to-left) languages properly"
+        },
+        {
+          "description": "Use proper currency and number formatting"
+        },
+        {
+          "description": "Implement lazy loading for translation files"
+        },
+        {
+          "description": "Create translation management workflow"
+        },
+        {
+          "description": "Test with different locales and character sets"
         }
       ]
     },
@@ -425,13 +929,13 @@
           "description": "Always use the modern React 19 patterns and hooks."
         },
         {
-          "description": "Always use TypeScript with proper typing."
+          "description": "Always use TypeScript 5.5+ with proper strict typing."
         },
         {
           "description": "Always use Radix UI components when building UI elements."
         },
         {
-          "description": "Always style with Tailwind CSS."
+          "description": "Always style with Tailwind CSS 4.0 utilities."
         },
         {
           "description": "Ensure code is complete! Verify thoroughly finalised."
@@ -446,25 +950,25 @@
           "description": "DO NOT GIVE HIGH LEVEL EXPLANATIONS - PROVIDE ACTUAL CODE AND IMPLEMENTATIONS."
         },
         {
-          "description": "Be concise and efficient."
+          "description": "Be concise and efficient in responses."
         },
         {
-          "description": "Suggest modern React and TypeScript solutions."
+          "description": "Suggest modern React 19 and TypeScript 5.5+ solutions."
         },
         {
           "description": "Treat user as an experienced developer."
         },
         {
-          "description": "Be accurate and thorough."
+          "description": "Be accurate and thorough in implementations."
         },
         {
-          "description": "Give the answer immediately with working code."
+          "description": "Give working code immediately with proper imports."
         },
         {
           "description": "Focus on modern, performant, and accessible solutions."
         },
         {
-          "description": "Use composition over inheritance."
+          "description": "Use composition over inheritance patterns."
         },
         {
           "description": "Prioritize TypeScript type safety and developer experience."
@@ -477,6 +981,15 @@
         },
         {
           "description": "Keep responses focused and avoid unnecessary explanations unless requested."
+        },
+        {
+          "description": "Use Context7 documentation (@-links) when referencing external libraries."
+        },
+        {
+          "description": "Leverage Cursor's AI Review for code quality checks."
+        },
+        {
+          "description": "Suggest performance optimizations proactively."
         }
       ]
     }
