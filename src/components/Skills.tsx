@@ -10,15 +10,15 @@ import { memo, useMemo } from "react";
 const SKILL_CATEGORIES = [
   {
     title: "Current Skills",
-    items: ["PHP", "Laravel", "TypeScript", "Tailwind CSS", "Vue.js"],
+    items: ["PHP", "Laravel", "TypeScript"],
   },
   {
     title: "Currently Learning",
-    items: ["React", "Python", "Node.js"],
+    items: ["Vue.js", "Python"],
   },
   {
     title: "Planning to Learn",
-    items: ["Java", "C#", ".NET", "ASP.NET", "Go"],
+    items: ["Java", "Spring", "C#", ".NET", "ASP.NET"],
   },
 ] as const satisfies readonly SkillCategory[];
 
