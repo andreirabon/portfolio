@@ -18,7 +18,7 @@ const SKILL_CATEGORIES = [
   },
   {
     title: "Planning to Learn",
-    items: ["Java", "Spring", "C#", ".NET", "ASP.NET"],
+    items: ["Java", "Spring", "C#", ".NET"],
   },
 ] as const satisfies readonly SkillCategory[];
 
